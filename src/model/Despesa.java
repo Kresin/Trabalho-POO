@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Gabriel Kresin e Iago Tambosi
+ * @author Gabriel Kresin e Iago Tambosi 
  */
 public class Despesa extends Receita {
 
