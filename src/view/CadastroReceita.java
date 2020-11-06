@@ -6,8 +6,13 @@
 package view;
 
 import java.text.ParseException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import javax.swing.JFormattedTextField;
+import javax.swing.JOptionPane;
 import javax.swing.text.MaskFormatter;
+import model.Entrada;
+import model.TipoEntrada;
 
 /**
  *
@@ -125,8 +130,18 @@ public class CadastroReceita extends javax.swing.JDialog {
         );
 
         btnSalvar.setText("Salvar");
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -159,8 +174,72 @@ public class CadastroReceita extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void radioButtonSalarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioButtonSalarioActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_radioButtonSalarioActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        // Valida se alguma opção está selecionada
+        if (!radioButtonSalario.isSelected() && !radioButtonFerias.isSelected() && !radioButtonDecimoTerceiro.isSelected() && !radioButtonOutrasReceitas.isSelected()) {
+            JOptionPane.showMessageDialog(null, "É necessário selecionar um tipo de receita!", "Erro", JOptionPane.ERROR_MESSAGE); // Pop-up de erro
+            return; // O return serve para encerrar a execução do método, ou seja não será executado mais nada a partir desse ponto
+        }
+        // Valida se foi informado o valor da entrada
+        if (textFieldValorReceita.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "É necessário informar o valor da receita!", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        Entrada entrada = new Entrada();
+
+        // Verifica qual tipo de entrada foi selecionado
+        if (radioButtonSalario.isSelected()) {
+            entrada.setTipoEntrada(TipoEntrada.SALARIO);
+        } else if (radioButtonDecimoTerceiro.isSelected()) {
+            entrada.setTipoEntrada(TipoEntrada.DECIMO_TERCEIRO);
+        } else if (radioButtonFerias.isSelected()) {
+            entrada.setTipoEntrada(TipoEntrada.FERIAS);
+        } else {
+            entrada.setTipoEntrada(TipoEntrada.OUTRAS_ENTRADAS);
+        }
+
+        double valorEntrada;
+        try {
+            // Converte o valor informado para o tipo double
+            valorEntrada = Double.parseDouble(textFieldValorReceita.getText());
+        } catch (NumberFormatException ex) {
+            // Caso ocorra uma exceção na hora de converter o campo, é mostrada uma mensagem de erro ao usuário
+            JOptionPane.showMessageDialog(null, "Valor da receita está incorreto!", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        // Verifica se o valor informado é superior a 0
+        if (valorEntrada <= 0) {
+            JOptionPane.showMessageDialog(null, "Valor da receita deve ser maior que 0!", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        entrada.setValor(valorEntrada);
+        
+        LocalDate dataLancamento;
+        try {
+            // Cria um formatador de data
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            
+            // Converte uma String no mesmo formato do parâmetro 'formatter' em um objeto do tipo LocalDate
+            dataLancamento = LocalDate.parse(textFieldDataEntrada.getText(), formatter);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Data de entrada incorreta!", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        entrada.setDataLancamento(dataLancamento);
+        entrada.salvarDados(); // Salva os dados
+
+        this.setVisible(false); // Fecha a tela
+    }//GEN-LAST:event_btnSalvarActionPerformed
 
     /**
      * @param args the command line arguments
