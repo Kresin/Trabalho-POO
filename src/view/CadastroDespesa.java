@@ -16,7 +16,7 @@ import model.TipoDespesa;
 
 /**
  *
- * @author gabri
+ * @author Gabriel Kresin e Iago Tambosi
  */
 public class CadastroDespesa extends javax.swing.JDialog {
 
