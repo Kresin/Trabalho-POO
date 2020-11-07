@@ -6,7 +6,7 @@ import java.time.LocalDate;
  *
  * @author Gabriel Kresin e Iago Tambosi
  */
-public abstract class Receita extends Persistencia {
+public abstract class Receita implements Persistencia {
     
     private LocalDate dataLancamento;
     private double valor;
