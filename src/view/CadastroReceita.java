@@ -11,8 +11,8 @@ import java.time.format.DateTimeFormatter;
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.text.MaskFormatter;
-import model.Entrada;
-import model.TipoEntrada;
+import model.Receita;
+import model.TipoReceita;
 
 /**
  *
@@ -192,17 +192,17 @@ public class CadastroReceita extends javax.swing.JDialog {
             return;
         }
         
-        Entrada entrada = new Entrada();
+        Receita receita = new Receita();
 
         // Verifica qual tipo de entrada foi selecionado
         if (radioButtonSalario.isSelected()) {
-            entrada.setTipoEntrada(TipoEntrada.SALARIO);
+            receita.setTipoReceita(TipoReceita.SALARIO);
         } else if (radioButtonDecimoTerceiro.isSelected()) {
-            entrada.setTipoEntrada(TipoEntrada.DECIMO_TERCEIRO);
+            receita.setTipoReceita(TipoReceita.DECIMO_TERCEIRO);
         } else if (radioButtonFerias.isSelected()) {
-            entrada.setTipoEntrada(TipoEntrada.FERIAS);
+            receita.setTipoReceita(TipoReceita.FERIAS);
         } else {
-            entrada.setTipoEntrada(TipoEntrada.OUTRAS_ENTRADAS);
+            receita.setTipoReceita(TipoReceita.OUTRAS_ENTRADAS);
         }
 
         double valorEntrada;
@@ -221,7 +221,7 @@ public class CadastroReceita extends javax.swing.JDialog {
             return;
         }
 
-        entrada.setValor(valorEntrada);
+        receita.setValor(valorEntrada);
         
         LocalDate dataLancamento;
         try {
@@ -235,8 +235,8 @@ public class CadastroReceita extends javax.swing.JDialog {
             return;
         }
         
-        entrada.setDataLancamento(dataLancamento);
-        entrada.salvarDados(); // Salva os dados
+        receita.setDataLancamento(dataLancamento);
+        receita.salvarDados(); // Salva os dados
 
         this.setVisible(false); // Fecha a tela
     }//GEN-LAST:event_btnSalvarActionPerformed

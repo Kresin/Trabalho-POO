@@ -6,7 +6,7 @@ import java.util.ArrayList;
  *
  * @author Gabriel Kresin e Iago Tambosi 
  */
-public class Despesa extends Receita {
+public class Despesa extends Lancamento {
 
     private TipoDespesa tipoDespesa;
 
