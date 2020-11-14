@@ -7,7 +7,7 @@ package view;
 
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
-import model.Entrada;
+import model.Receita;
 
 /**
  *
@@ -25,9 +25,9 @@ public class VisualizarLancamentos extends javax.swing.JDialog {
         desabilitarOpcoesReceita();
         desabilitarOpcoesDespesa();
         
-        Entrada entrada = new Entrada();
-        ArrayList<String> entradas = entrada.listarDados();
-        int totalEntradas = entradas.size() / 3;
+        Receita receita = new Receita();
+        ArrayList<String> receitas = receita.listarDados();
+        int totalEntradas = receitas.size() / 3;
         
         DefaultTableModel dtm = new DefaultTableModel(totalEntradas, 0);
         dtm.addColumn("Tipo de Lançamento");
@@ -39,9 +39,9 @@ public class VisualizarLancamentos extends javax.swing.JDialog {
         
         for (int i = 0; i < totalEntradas; i++) {
             tableLancamentos.setValueAt("Receita", i, 0);
-            tableLancamentos.setValueAt(entradas.get(i), i, 2);
-            tableLancamentos.setValueAt(entradas.get(i+1), i, 3);
-            tableLancamentos.setValueAt(entradas.get(i+2), i, 1);
+            tableLancamentos.setValueAt(receitas.get(i), i, 2);
+            tableLancamentos.setValueAt(receitas.get(i+1), i, 3);
+            tableLancamentos.setValueAt(receitas.get(i+2), i, 1);
         }
     }
 
