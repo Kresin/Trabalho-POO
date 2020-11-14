@@ -70,6 +70,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jButton4.setText("Visualizar Entradas");
 
         jButton5.setText("Visualizar Lançamentos");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jCheckBox1.setText("jCheckBox1");
 
@@ -213,6 +218,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
        CadastroReceita cadastroReceita = new CadastroReceita(this, true);
        cadastroReceita.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        VisualizarLancamentos visualizarLancamentos = new VisualizarLancamentos(this, true);
+        visualizarLancamentos.setVisible(true);
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
