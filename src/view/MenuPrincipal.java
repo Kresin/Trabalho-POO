@@ -46,7 +46,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton7 = new javax.swing.JButton();
+        btnCadastrarDespesa = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,6 +71,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jButton4.setText("Visualizar Entradas");
 
         jButton5.setText("Visualizar Lançamentos");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jCheckBox1.setText("jCheckBox1");
 
@@ -108,10 +113,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        jButton7.setText("Cadastrar Despesa");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        btnCadastrarDespesa.setText("Cadastrar Despesa");
+        btnCadastrarDespesa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                btnCadastrarDespesaActionPerformed(evt);
             }
         });
 
@@ -133,8 +138,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButton1)
-                                .addGap(28, 28, 28)
-                                .addComponent(jButton7)
+                                .addGap(73, 73, 73)
+                                .addComponent(btnCadastrarDespesa)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel1))
                             .addGroup(layout.createSequentialGroup()
@@ -162,7 +167,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     .addComponent(jButton1)
                     .addComponent(jLabel1)
                     .addComponent(jButton2)
-                    .addComponent(jButton7))
+                    .addComponent(btnCadastrarDespesa))
                 .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3)
@@ -225,10 +230,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
        cadastroReceita.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        VisualizarLancamentos visualizarLancamentos = new VisualizarLancamentos(this, true);
+        visualizarLancamentos.setVisible(true);
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void btnCadastrarDespesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarDespesaActionPerformed
         CadastroDespesa cadastroDespesa = new CadastroDespesa(this, true);
         cadastroDespesa.setVisible(true);
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_btnCadastrarDespesaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -267,13 +277,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCadastrarDespesa;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JCheckBox jCheckBox3;

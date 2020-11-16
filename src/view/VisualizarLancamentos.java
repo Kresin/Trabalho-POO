@@ -5,6 +5,10 @@
  */
 package view;
 
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import model.Receita;
+
 /**
  *
  * @author gabri
@@ -17,6 +21,28 @@ public class VisualizarLancamentos extends javax.swing.JDialog {
     public VisualizarLancamentos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+
+        desabilitarOpcoesReceita();
+        desabilitarOpcoesDespesa();
+        
+        Receita receita = new Receita();
+        ArrayList<String> receitas = receita.listarDados();
+        int totalEntradas = receitas.size() / 3;
+        
+        DefaultTableModel dtm = new DefaultTableModel(totalEntradas, 0);
+        dtm.addColumn("Tipo de Lançamento");
+        dtm.addColumn("Tipo de Receita");
+        dtm.addColumn("Data");
+        dtm.addColumn("Valor");
+        dtm.addColumn("Saldo");
+        tableLancamentos.setModel(dtm);
+        
+        for (int i = 0; i < totalEntradas; i++) {
+            tableLancamentos.setValueAt("Receita", i, 0);
+            tableLancamentos.setValueAt(receitas.get(i), i, 2);
+            tableLancamentos.setValueAt(receitas.get(i+1), i, 3);
+            tableLancamentos.setValueAt(receitas.get(i+2), i, 1);
+        }
     }
 
     /**
@@ -28,21 +54,269 @@ public class VisualizarLancamentos extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        checkBoxReceita = new javax.swing.JCheckBox();
+        checkBoxDespesa = new javax.swing.JCheckBox();
+        jPanel2 = new javax.swing.JPanel();
+        checkBoxSalario = new javax.swing.JCheckBox();
+        checkBoxDecimoTerceiro = new javax.swing.JCheckBox();
+        checkBoxFerias = new javax.swing.JCheckBox();
+        checkBoxOutrasEntradas = new javax.swing.JCheckBox();
+        jPanel3 = new javax.swing.JPanel();
+        checkBoxAlimentacao = new javax.swing.JCheckBox();
+        checkBoxTransporte = new javax.swing.JCheckBox();
+        checkBoxSaude = new javax.swing.JCheckBox();
+        checkBoxEducacao = new javax.swing.JCheckBox();
+        checkBoxEntretenimento = new javax.swing.JCheckBox();
+        checkBoxResidencia = new javax.swing.JCheckBox();
+        checkBoxOutros = new javax.swing.JCheckBox();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tableLancamentos = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        btnSair = new javax.swing.JButton();
+
+        jLabel1.setText("jLabel1");
+
+        jButton2.setText("jButton2");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Tipo de Lançamento"));
+
+        checkBoxReceita.setText("Receita");
+        checkBoxReceita.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkBoxReceitaActionPerformed(evt);
+            }
+        });
+
+        checkBoxDespesa.setText("Despesa");
+        checkBoxDespesa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkBoxDespesaActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(checkBoxReceita)
+                .addGap(18, 18, 18)
+                .addComponent(checkBoxDespesa)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(checkBoxReceita)
+                    .addComponent(checkBoxDespesa))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Tipo de Receita"));
+
+        checkBoxSalario.setText("Salário");
+
+        checkBoxDecimoTerceiro.setText("Décimo Terceiro");
+        checkBoxDecimoTerceiro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkBoxDecimoTerceiroActionPerformed(evt);
+            }
+        });
+
+        checkBoxFerias.setText("Férias");
+
+        checkBoxOutrasEntradas.setText("Outras Entradas");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(checkBoxSalario)
+                .addGap(18, 18, 18)
+                .addComponent(checkBoxDecimoTerceiro)
+                .addGap(18, 18, 18)
+                .addComponent(checkBoxFerias)
+                .addGap(18, 18, 18)
+                .addComponent(checkBoxOutrasEntradas)
+                .addContainerGap(38, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(checkBoxSalario)
+                    .addComponent(checkBoxDecimoTerceiro)
+                    .addComponent(checkBoxFerias)
+                    .addComponent(checkBoxOutrasEntradas))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Tipo de Despesa"));
+
+        checkBoxAlimentacao.setText("Alimentação");
+
+        checkBoxTransporte.setText("Transporte");
+
+        checkBoxSaude.setText("Saúde");
+
+        checkBoxEducacao.setText("Educação");
+
+        checkBoxEntretenimento.setText("Entretenimento");
+
+        checkBoxResidencia.setText("Residência");
+
+        checkBoxOutros.setText("Outros");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(checkBoxAlimentacao)
+                        .addGap(36, 36, 36)
+                        .addComponent(checkBoxTransporte))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(checkBoxEntretenimento)
+                        .addGap(18, 18, 18)
+                        .addComponent(checkBoxResidencia)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(checkBoxOutros)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(checkBoxSaude)
+                        .addGap(18, 18, 18)
+                        .addComponent(checkBoxEducacao)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(checkBoxAlimentacao)
+                    .addComponent(checkBoxTransporte)
+                    .addComponent(checkBoxSaude)
+                    .addComponent(checkBoxEducacao))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(checkBoxEntretenimento)
+                    .addComponent(checkBoxResidencia)
+                    .addComponent(checkBoxOutros))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        tableLancamentos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Tipo de Lançamento", "Tipo de Receita/Despesa", "Data", "Valor", "Saldo"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tableLancamentos);
+
+        jButton1.setText("Filtrar");
+
+        jButton3.setText("Limpar Seleção");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        btnSair.setText("Sair");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnSair)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton3)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton3)
+                    .addComponent(btnSair)
+                    .addComponent(jButton1))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void checkBoxDecimoTerceiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxDecimoTerceiroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_checkBoxDecimoTerceiroActionPerformed
+
+    private void checkBoxReceitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxReceitaActionPerformed
+        if (checkBoxReceita.isSelected()) {
+            habilitarOpcoesReceita();
+        } else {
+            desabilitarOpcoesReceita();
+        }
+    }//GEN-LAST:event_checkBoxReceitaActionPerformed
+
+    private void checkBoxDespesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxDespesaActionPerformed
+        if (checkBoxDespesa.isSelected()) {
+            habilitarOpcoesDespesa();
+        } else {
+            desabilitarOpcoesDespesa();
+        }
+    }//GEN-LAST:event_checkBoxDespesaActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        desabilitarOpcoesDespesa();
+        desabilitarOpcoesReceita();
+        checkBoxDespesa.setSelected(false);
+        checkBoxReceita.setSelected(false);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -55,7 +329,7 @@ public class VisualizarLancamentos extends javax.swing.JDialog {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -86,6 +360,77 @@ public class VisualizarLancamentos extends javax.swing.JDialog {
         });
     }
 
+    private void desabilitarOpcoesReceita() {
+        checkBoxSalario.setEnabled(false);
+        checkBoxFerias.setEnabled(false);
+        checkBoxDecimoTerceiro.setEnabled(false);
+        checkBoxOutrasEntradas.setEnabled(false);
+
+        checkBoxSalario.setSelected(false);
+        checkBoxFerias.setSelected(false);
+        checkBoxDecimoTerceiro.setSelected(false);
+        checkBoxOutrasEntradas.setSelected(false);
+    }
+
+    private void desabilitarOpcoesDespesa() {
+        checkBoxAlimentacao.setEnabled(false);
+        checkBoxEducacao.setEnabled(false);
+        checkBoxEntretenimento.setEnabled(false);
+        checkBoxTransporte.setEnabled(false);
+        checkBoxOutros.setEnabled(false);
+        checkBoxResidencia.setEnabled(false);
+        checkBoxSaude.setEnabled(false);
+
+        checkBoxAlimentacao.setSelected(false);
+        checkBoxEducacao.setSelected(false);
+        checkBoxEntretenimento.setSelected(false);
+        checkBoxTransporte.setSelected(false);
+        checkBoxOutros.setSelected(false);
+        checkBoxResidencia.setSelected(false);
+        checkBoxSaude.setSelected(false);
+    }
+
+    private void habilitarOpcoesReceita() {
+        checkBoxSalario.setEnabled(true);
+        checkBoxFerias.setEnabled(true);
+        checkBoxDecimoTerceiro.setEnabled(true);
+        checkBoxOutrasEntradas.setEnabled(true);
+    }
+
+    private void habilitarOpcoesDespesa() {
+        checkBoxAlimentacao.setEnabled(true);
+        checkBoxEducacao.setEnabled(true);
+        checkBoxEntretenimento.setEnabled(true);
+        checkBoxTransporte.setEnabled(true);
+        checkBoxOutros.setEnabled(true);
+        checkBoxResidencia.setEnabled(true);
+        checkBoxSaude.setEnabled(true);
+    }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSair;
+    private javax.swing.JCheckBox checkBoxAlimentacao;
+    private javax.swing.JCheckBox checkBoxDecimoTerceiro;
+    private javax.swing.JCheckBox checkBoxDespesa;
+    private javax.swing.JCheckBox checkBoxEducacao;
+    private javax.swing.JCheckBox checkBoxEntretenimento;
+    private javax.swing.JCheckBox checkBoxFerias;
+    private javax.swing.JCheckBox checkBoxOutrasEntradas;
+    private javax.swing.JCheckBox checkBoxOutros;
+    private javax.swing.JCheckBox checkBoxReceita;
+    private javax.swing.JCheckBox checkBoxResidencia;
+    private javax.swing.JCheckBox checkBoxSalario;
+    private javax.swing.JCheckBox checkBoxSaude;
+    private javax.swing.JCheckBox checkBoxTransporte;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tableLancamentos;
     // End of variables declaration//GEN-END:variables
 }
