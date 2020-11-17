@@ -24,9 +24,21 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="191" max="-2" attributes="0"/>
+              <Component id="jbLimparFiltro" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jbFiltrar" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+              <Component id="jbFechar" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="37" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel3" max="32767" attributes="0"/>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jPanel3" max="32767" attributes="0"/>
+                  <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -35,7 +47,15 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="355" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jScrollPane2" min="-2" pref="289" max="-2" attributes="0"/>
+              <EmptySpace pref="21" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jbLimparFiltro" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jbFiltrar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jbFechar" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -56,27 +76,25 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="checkBoxAlimentacao" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                          <Component id="checkBoxTransporte" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="checkBoxEntretenimento" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="checkBoxResidencia" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="cbEntretenimento" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbAlimentacao" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="checkBoxOutros" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="checkBoxSaude" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="checkBoxEducacao" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="cbResidencia" min="-2" pref="89" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="cbOutros" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="cbTransporte" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="cbSaude" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
+                  <Component id="cbEducacao" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -85,16 +103,16 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="checkBoxAlimentacao" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="checkBoxTransporte" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="checkBoxSaude" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="checkBoxEducacao" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbAlimentacao" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbTransporte" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbSaude" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbEducacao" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="checkBoxEntretenimento" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="checkBoxResidencia" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="checkBoxOutros" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbEntretenimento" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbResidencia" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbOutros" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -102,42 +120,111 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JCheckBox" name="checkBoxAlimentacao">
+        <Component class="javax.swing.JCheckBox" name="cbAlimentacao">
           <Properties>
             <Property name="text" type="java.lang.String" value="Alimenta&#xe7;&#xe3;o"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="checkBoxTransporte">
+        <Component class="javax.swing.JCheckBox" name="cbTransporte">
           <Properties>
             <Property name="text" type="java.lang.String" value="Transporte"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="checkBoxSaude">
+        <Component class="javax.swing.JCheckBox" name="cbSaude">
           <Properties>
             <Property name="text" type="java.lang.String" value="Sa&#xfa;de"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbSaudeActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="checkBoxEducacao">
+        <Component class="javax.swing.JCheckBox" name="cbEducacao">
           <Properties>
             <Property name="text" type="java.lang.String" value="Educa&#xe7;&#xe3;o"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="checkBoxEntretenimento">
+        <Component class="javax.swing.JCheckBox" name="cbEntretenimento">
           <Properties>
             <Property name="text" type="java.lang.String" value="Entretenimento"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="checkBoxResidencia">
+        <Component class="javax.swing.JCheckBox" name="cbResidencia">
           <Properties>
             <Property name="text" type="java.lang.String" value="Resid&#xea;ncia"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="checkBoxOutros">
+        <Component class="javax.swing.JCheckBox" name="cbOutros">
           <Properties>
             <Property name="text" type="java.lang.String" value="Outros"/>
           </Properties>
         </Component>
       </SubComponents>
     </Container>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTable" name="tableDespesas">
+          <Properties>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+              <Table columnCount="3" rowCount="0">
+                <Column editable="false" title="Tipo da Despesa" type="java.lang.Object"/>
+                <Column editable="false" title="Data de lan&#xe7;amento" type="java.lang.Object"/>
+                <Column editable="false" title="Valor" type="java.lang.Object"/>
+              </Table>
+            </Property>
+            <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+              <TableColumnModel selectionModel="0">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+              </TableColumnModel>
+            </Property>
+            <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+              <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+            </Property>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JButton" name="jbLimparFiltro">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Limpar Filtros"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbLimparFiltroActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jbFiltrar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Filtrar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbFiltrarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jbFechar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Fechar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbFecharActionPerformed"/>
+      </Events>
+    </Component>
   </SubComponents>
 </Form>

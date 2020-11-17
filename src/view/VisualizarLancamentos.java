@@ -56,19 +56,24 @@ public class VisualizarLancamentos extends javax.swing.JDialog {
         dtm.addColumn("Saldo");
         tableLancamentos.setModel(dtm);
 
+        double saldo = 0;
         for (int i = 0; i < lancamentos.size(); i++) {
             if (lancamentos.get(i) instanceof Receita) {
                 Receita receita = (Receita) lancamentos.get(i);
+                saldo += receita.getValor();
                 tableLancamentos.setValueAt("Receita", i, 0);
                 tableLancamentos.setValueAt(receita.getTipoReceita(), i, 2);
                 tableLancamentos.setValueAt(receita.getDataLancamento(), i, 3);
                 tableLancamentos.setValueAt(receita.getValor(), i, 1);
+                tableLancamentos.setValueAt(saldo, i, 4);
             } else {
                 Despesa despesa = (Despesa) lancamentos.get(i);
+                saldo -= despesa.getValor();
                 tableLancamentos.setValueAt("Despesa", i, 0);
                 tableLancamentos.setValueAt(despesa.getTipoDespesa(), i, 2);
                 tableLancamentos.setValueAt(despesa.getDataLancamento(), i, 3);
                 tableLancamentos.setValueAt(despesa.getValor(), i, 1);
+                tableLancamentos.setValueAt(saldo, i, 4);
             }
         }
     }
