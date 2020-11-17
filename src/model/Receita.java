@@ -5,7 +5,9 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -49,10 +51,10 @@ public class Receita extends Lancamento {
     }
 
     @Override
-    public ArrayList<String> listarDados() {
+    public List<Receita> listarDados() {
         FileReader fileReader;
         BufferedReader bufferedReader;
-        ArrayList<String> entradas = new ArrayList<>();
+        ArrayList<Receita> receitas = new ArrayList<>();
 
         try {
             fileReader = new FileReader("test.txt");
@@ -61,10 +63,6 @@ public class Receita extends Lancamento {
 
             String linha;
             while ((linha = bufferedReader.readLine()) != null) {
-
-                //String exemplo: 
-                //0123456789 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24
-                //2020-11-06 ;  2  0  0  0  .  0  ;  S  A  L  A  R  I  O
                 int indexPontoVirgula = linha.indexOf(';');
                 String data = linha.substring(0, indexPontoVirgula);
 
@@ -78,16 +76,60 @@ public class Receita extends Lancamento {
                 String enumeracao = linha;
 
                 if (verificaSeRegistroEhReceita(enumeracao)) {
-                    entradas.add(data);
-                    entradas.add(valor);
-                    entradas.add(enumeracao);
+                    Receita r = new Receita();
+                    r.setValor(Double.parseDouble(valor));
+                    r.setDataLancamento(LocalDate.parse(data));
+                    r.setTipoReceita(converterStringParaTipoReceita(enumeracao));
+                    receitas.add(r);
                 }
             }
         } catch (IOException ex) {
             System.out.println("Erro ao carregar dados.");
         }
 
-        return entradas;
+        return receitas;
+    }
+
+    public List<Receita> listarDados(ArrayList<TipoReceita> tipoReceitas) {
+        FileReader fileReader;
+        BufferedReader bufferedReader;
+        ArrayList<Receita> receitas = new ArrayList<>();
+
+        try {
+            fileReader = new FileReader("test.txt");
+
+            bufferedReader = new BufferedReader(fileReader);
+
+            String linha;
+            while ((linha = bufferedReader.readLine()) != null) {
+                int indexPontoVirgula = linha.indexOf(';');
+                String data = linha.substring(0, indexPontoVirgula);
+
+                linha = linha.substring(indexPontoVirgula + 1);
+
+                indexPontoVirgula = linha.indexOf(';');
+                String valor = linha.substring(0, indexPontoVirgula);
+
+                linha = linha.substring(indexPontoVirgula + 1);
+
+                String enumeracao = linha;
+
+                if (verificaSeRegistroEhReceita(enumeracao)) {
+                    TipoReceita tipoDeReceita = converterStringParaTipoReceita(enumeracao);
+                    if (tipoReceitas.contains(tipoDeReceita)) {
+                        Receita r = new Receita();
+                        r.setValor(Double.parseDouble(valor));
+                        r.setDataLancamento(LocalDate.parse(data));
+                        r.setTipoReceita(tipoDeReceita);
+                        receitas.add(r);
+                    }
+                }
+            }
+        } catch (IOException ex) {
+            System.out.println("Erro ao carregar dados.");
+        }
+
+        return receitas;
     }
 
     private boolean verificaSeRegistroEhReceita(String enumeracao) {
@@ -96,4 +138,19 @@ public class Receita extends Lancamento {
                 || enumeracao.equals(TipoReceita.DECIMO_TERCEIRO.toString()) //
                 || enumeracao.equals(TipoReceita.OUTRAS_ENTRADAS.toString());
     }
+
+    private TipoReceita converterStringParaTipoReceita(String tipoReceita) {
+        switch (tipoReceita) {
+            case "SALARIO":
+                return TipoReceita.SALARIO;
+            case "FERIAS":
+                return TipoReceita.FERIAS;
+            case "DECIMO_TERCEIRO":
+                return TipoReceita.DECIMO_TERCEIRO;
+            case "OUTRAS_ENTRADAS":
+                return TipoReceita.OUTRAS_ENTRADAS;
+        }
+        throw new RuntimeException("Não foi possível converter o valor " + tipoReceita + "em um tipo de receita");
+    }
+
 }

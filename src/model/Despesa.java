@@ -1,13 +1,17 @@
 package model;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
- * @author Gabriel Kresin e Iago Tambosi 
+ * @author Gabriel Kresin e Iago Tambosi
  */
 public class Despesa extends Lancamento {
 
@@ -20,7 +24,7 @@ public class Despesa extends Lancamento {
     public void setTipoDespesa(TipoDespesa tipoDespesa) {
         this.tipoDespesa = tipoDespesa;
     }
-    
+
     @Override
     public void salvarDados() {
         String dadosParaSalvar = this.getDataLancamento() + ";" + this.getValor() + ";" + this.tipoDespesa; // Concatena os dados que serão salvos no arquivo
@@ -33,7 +37,7 @@ public class Despesa extends Lancamento {
         try {
             // Carrega o arquivo. O parâmetro 'true' indica que o arquivo carregado NÃO deverá ser sobreescrito, e sim feito a concatenação de todos os dados
             fileWriter = new FileWriter("test.txt", true);
-            
+
             bufferedWriter = new BufferedWriter(fileWriter);
 
             bufferedWriter.write(dadosParaSalvar); // Escreve os dados no arquivo
@@ -47,28 +51,120 @@ public class Despesa extends Lancamento {
     }
 
     @Override
-    public ArrayList<String> listarDados() {
-        return new ArrayList<>();
-    }
-    
-    /**
-     *
-     * @param despesas
-     * @return
-     */
-    public ArrayList<String> listarDados(ArrayList<TipoDespesa> despesas) {
-        ArrayList<String> listarDados = listarDados();
-        
-        ArrayList<String> dadosFiltrados = listarDados();
-        
-        for (String string : listarDados) {
-            //converter strinig em enum
-            if(despesas.contains(string)) {
-                dadosFiltrados.add(string);
+    public List<Despesa> listarDados() {
+        FileReader fileReader;
+        BufferedReader bufferedReader;
+        ArrayList<Despesa> despesas = new ArrayList<>();
+
+        try {
+            fileReader = new FileReader("test.txt");
+
+            bufferedReader = new BufferedReader(fileReader);
+
+            String linha;
+            while ((linha = bufferedReader.readLine()) != null) {
+                int indexPontoVirgula = linha.indexOf(';');
+                String data = linha.substring(0, indexPontoVirgula);
+
+                linha = linha.substring(indexPontoVirgula + 1);
+
+                indexPontoVirgula = linha.indexOf(';');
+                String valor = linha.substring(0, indexPontoVirgula);
+
+                linha = linha.substring(indexPontoVirgula + 1);
+
+                String enumeracao = linha;
+
+                if (verificaSeRegistroEhDespesa(enumeracao)) {
+                    Despesa d = new Despesa();
+                    d.setValor(Double.parseDouble(valor));
+                    d.setDataLancamento(LocalDate.parse(data));
+                    d.setTipoDespesa(converterStringParaTipoDespesa(enumeracao));
+                    despesas.add(d);
+                }
             }
+        } catch (IOException ex) {
+            System.out.println("Erro ao carregar dados.");
         }
-        return dadosFiltrados;
+
+        return despesas;
     }
 
-    
+    /**
+     *
+     * @param tipoDespesas
+     * @return
+     */
+    public List<Despesa> listarDados(ArrayList<TipoDespesa> tipoDespesas) {
+        FileReader fileReader;
+        BufferedReader bufferedReader;
+        ArrayList<Despesa> despesas = new ArrayList<>();
+
+        try {
+            fileReader = new FileReader("test.txt");
+
+            bufferedReader = new BufferedReader(fileReader);
+
+            String linha;
+            while ((linha = bufferedReader.readLine()) != null) {
+                int indexPontoVirgula = linha.indexOf(';');
+                String data = linha.substring(0, indexPontoVirgula);
+
+                linha = linha.substring(indexPontoVirgula + 1);
+
+                indexPontoVirgula = linha.indexOf(';');
+                String valor = linha.substring(0, indexPontoVirgula);
+
+                linha = linha.substring(indexPontoVirgula + 1);
+
+                String enumeracao = linha;
+
+                if (verificaSeRegistroEhDespesa(enumeracao)) {
+                    TipoDespesa tipoDeDespesa = converterStringParaTipoDespesa(enumeracao);
+                    if (tipoDespesas.contains(tipoDeDespesa)) {
+                        Despesa d = new Despesa();
+                        d.setValor(Double.parseDouble(valor));
+                        d.setDataLancamento(LocalDate.parse(data));
+                        d.setTipoDespesa(converterStringParaTipoDespesa(enumeracao));
+                        despesas.add(d);
+                    }
+                }
+            }
+        } catch (IOException ex) {
+            System.out.println("Erro ao carregar dados.");
+        }
+
+        return despesas;
+    }
+
+    private boolean verificaSeRegistroEhDespesa(String enumeracao) {
+        return enumeracao.equals(TipoDespesa.ALIMENTACAO.toString()) //
+                || enumeracao.equals(TipoDespesa.EDUCACAO.toString()) // 
+                || enumeracao.equals(TipoDespesa.ENTRETENIMENTO.toString()) //
+                || enumeracao.equals(TipoDespesa.OUTRAS_DESPESAS.toString()) //
+                || enumeracao.equals(TipoDespesa.RESIDENCIA.toString()) //
+                || enumeracao.equals(TipoDespesa.SAUDE.toString()) //
+                || enumeracao.equals(TipoDespesa.TRANSPORTE.toString());
+    }
+
+    private TipoDespesa converterStringParaTipoDespesa(String tipoDespesa) {
+        switch (tipoDespesa) {
+            case "ALIMENTACAO":
+                return TipoDespesa.ALIMENTACAO;
+            case "EDUCACAO":
+                return TipoDespesa.EDUCACAO;
+            case "ENTRETENIMENTO":
+                return TipoDespesa.ENTRETENIMENTO;
+            case "OUTRAS_DESPESAS":
+                return TipoDespesa.OUTRAS_DESPESAS;
+            case "RESIDENCIA":
+                return TipoDespesa.RESIDENCIA;
+            case "SAUDE":
+                return TipoDespesa.SAUDE;
+            case "TRANSPORTE":
+                return TipoDespesa.TRANSPORTE;
+        }
+        throw new RuntimeException("Não foi possível converter o valor " + tipoDespesa + "em um tipo de despesa");
+    }
+
 }

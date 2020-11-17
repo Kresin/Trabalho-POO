@@ -69,6 +69,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jButton3.setText("Visualizar Despesas");
 
         jButton4.setText("Visualizar Entradas");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("Visualizar Lançamentos");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -239,6 +244,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         CadastroDespesa cadastroDespesa = new CadastroDespesa(this, true);
         cadastroDespesa.setVisible(true);
     }//GEN-LAST:event_btnCadastrarDespesaActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        VisualizarReceitas visualizarReceitas = new VisualizarReceitas(this, true);
+        visualizarReceitas.setVisible(true);
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
