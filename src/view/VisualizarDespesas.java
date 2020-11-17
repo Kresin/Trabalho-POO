@@ -28,17 +28,89 @@ public class VisualizarDespesas extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel3 = new javax.swing.JPanel();
+        checkBoxAlimentacao = new javax.swing.JCheckBox();
+        checkBoxTransporte = new javax.swing.JCheckBox();
+        checkBoxSaude = new javax.swing.JCheckBox();
+        checkBoxEducacao = new javax.swing.JCheckBox();
+        checkBoxEntretenimento = new javax.swing.JCheckBox();
+        checkBoxResidencia = new javax.swing.JCheckBox();
+        checkBoxOutros = new javax.swing.JCheckBox();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Tipo de Despesa"));
+
+        checkBoxAlimentacao.setText("Alimentação");
+
+        checkBoxTransporte.setText("Transporte");
+
+        checkBoxSaude.setText("Saúde");
+
+        checkBoxEducacao.setText("Educação");
+
+        checkBoxEntretenimento.setText("Entretenimento");
+
+        checkBoxResidencia.setText("Residência");
+
+        checkBoxOutros.setText("Outros");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(checkBoxAlimentacao)
+                        .addGap(36, 36, 36)
+                        .addComponent(checkBoxTransporte))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(checkBoxEntretenimento)
+                        .addGap(18, 18, 18)
+                        .addComponent(checkBoxResidencia)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(checkBoxOutros)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(checkBoxSaude)
+                        .addGap(18, 18, 18)
+                        .addComponent(checkBoxEducacao)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(checkBoxAlimentacao)
+                    .addComponent(checkBoxTransporte)
+                    .addComponent(checkBoxSaude)
+                    .addComponent(checkBoxEducacao))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(checkBoxEntretenimento)
+                    .addComponent(checkBoxResidencia)
+                    .addComponent(checkBoxOutros))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(355, Short.MAX_VALUE))
         );
 
         pack();
@@ -87,5 +159,13 @@ public class VisualizarDespesas extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox checkBoxAlimentacao;
+    private javax.swing.JCheckBox checkBoxEducacao;
+    private javax.swing.JCheckBox checkBoxEntretenimento;
+    private javax.swing.JCheckBox checkBoxOutros;
+    private javax.swing.JCheckBox checkBoxResidencia;
+    private javax.swing.JCheckBox checkBoxSaude;
+    private javax.swing.JCheckBox checkBoxTransporte;
+    private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 }

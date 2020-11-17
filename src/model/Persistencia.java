@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *  
@@ -18,6 +19,6 @@ public interface Persistencia {
      * Este método faz ...
      * @return
      */
-    public ArrayList<String> listarDados();
+    public List listarDados();
     
 }
