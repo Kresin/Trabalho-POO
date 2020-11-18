@@ -274,7 +274,7 @@ public class CadastroDespesa extends javax.swing.JDialog {
         }
         
         despesa.setDataLancamento(dataLancamento);
-        despesa.salvarDados(); // Salva os dados
+        despesa.salvarDados("test.txt"); // Salva os dados
 
         this.setVisible(false); // Fecha a tela
     }//GEN-LAST:event_btnSalvarActionPerformed

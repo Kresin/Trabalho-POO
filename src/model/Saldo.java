@@ -24,10 +24,10 @@ public class Saldo {
         LocalDate dateNow = LocalDate.now();
         double saldo = 0;
         Receita receita = new Receita();
-        List<Receita> receitas = receita.listarDados();
+        List<Receita> receitas = receita.listarDados("test.txt");
         
         Despesa despesa = new Despesa();
-        List<Despesa> despesas = despesa.listarDados();
+        List<Despesa> despesas = despesa.listarDados("test.txt");
         
         List<Lancamento> lancamentos = new ArrayList<>();
         lancamentos.addAll(receitas);
@@ -50,10 +50,10 @@ public class Saldo {
     public double obterSaldo() {
         double saldo = 0;
         Receita receita = new Receita();
-        List<Receita> receitas = receita.listarDados();
+        List<Receita> receitas = receita.listarDados("test.txt");
         
         Despesa despesa = new Despesa();
-        List<Despesa> despesas = despesa.listarDados();
+        List<Despesa> despesas = despesa.listarDados("test.txt");
         
         List<Lancamento> lancamentos = new ArrayList<>();
         lancamentos.addAll(receitas);

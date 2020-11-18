@@ -26,7 +26,7 @@ public class VisualizarDespesas extends javax.swing.JDialog {
         initComponents();
         
         Despesa despesa = new Despesa();
-        List<Despesa> despesas = despesa.listarDados();
+        List<Despesa> despesas = despesa.listarDados("test.txt");
 
         popularTabela(despesas);
     }
@@ -247,7 +247,7 @@ public class VisualizarDespesas extends javax.swing.JDialog {
 
         if (!tipoDespesas.isEmpty()) {
             Despesa despesa = new Despesa();
-            List<Despesa> despesas = despesa.listarDados(tipoDespesas);
+            List<Despesa> despesas = despesa.listarDados("test.txt", tipoDespesas);
             popularTabela(despesas);
         }
         
