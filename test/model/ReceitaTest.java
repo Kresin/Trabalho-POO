@@ -5,15 +5,20 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
 /**
  *
  * @author gabri
  */
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ReceitaTest {
 
     @BeforeClass
@@ -47,7 +52,7 @@ public class ReceitaTest {
     }
 
     @Test
-    public void salvarDados() {
+    public void teste_01_salvarDados() {
         Receita receita = new Receita();
         receita.setDataLancamento(LocalDate.of(2020, 01, 01));
         receita.setValor(200);
@@ -76,7 +81,35 @@ public class ReceitaTest {
     }
 
     @Test
-    public void verificaSeRegistroEhReceita_returnTrue() {
+    public void teste_02_listarDados() {
+        Receita receita = new Receita();
+        List<Receita> resultado = receita.listarDados("test-unitario.txt");
+
+        Assert.assertEquals(2, resultado.size());
+        Assert.assertEquals(200, resultado.get(0).getValor(), 0);
+        Assert.assertEquals(LocalDate.of(2020, 1, 1), resultado.get(0).getDataLancamento());
+        Assert.assertEquals(TipoReceita.SALARIO, resultado.get(0).getTipoReceita());
+        Assert.assertEquals(450, resultado.get(1).getValor(), 0);
+        Assert.assertEquals(LocalDate.of(2020, 1, 30), resultado.get(1).getDataLancamento());
+        Assert.assertEquals(TipoReceita.FERIAS, resultado.get(1).getTipoReceita());
+    }
+
+    @Test
+    public void teste_03_listarDados_comFiltro() {
+        Receita receita = new Receita();
+        ArrayList<TipoReceita> tipoReceitas = new ArrayList<>();
+        tipoReceitas.add(TipoReceita.FERIAS);
+
+        List<Receita> resultado = receita.listarDados("test-unitario.txt", tipoReceitas);
+
+        Assert.assertEquals(1, resultado.size());
+        Assert.assertEquals(450, resultado.get(0).getValor(), 0);
+        Assert.assertEquals(LocalDate.of(2020, 1, 30), resultado.get(0).getDataLancamento());
+        Assert.assertEquals(TipoReceita.FERIAS, resultado.get(0).getTipoReceita());
+    }
+
+    @Test
+    public void teste_04_verificaSeRegistroEhReceita_returnTrue() {
         Receita receita = new Receita();
         boolean resultado = receita.verificaSeRegistroEhReceita("SALARIO");
         Assert.assertEquals(true, resultado);
@@ -92,23 +125,14 @@ public class ReceitaTest {
     }
 
     @Test
-    public void verificaSeRegistroEhReceita_returnFalse() {
+    public void teste_05_verificaSeRegistroEhReceita_returnFalse() {
         Receita receita = new Receita();
         boolean resultado = receita.verificaSeRegistroEhReceita("CARRO");
         Assert.assertEquals(false, resultado);
     }
-    
-    @Test
-    public void simpleTest() {
-        try {
-            Receita receita = new Receita();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
     @Test
-    public void converterStringParaTipoReceita_tiposCompativeis() {
+    public void teste_06_converterStringParaTipoReceita_tiposCompativeis() {
         Receita receita = new Receita();
         TipoReceita resultado = receita.converterStringParaTipoReceita("SALARIO");
         Assert.assertEquals(TipoReceita.SALARIO, resultado);
@@ -124,7 +148,7 @@ public class ReceitaTest {
     }
 
     @Test
-    public void converterStringParaTipoReceita_exception() {
+    public void teste_07_converterStringParaTipoReceita_exception() {
         Receita receita = new Receita();
         try {
             receita.converterStringParaTipoReceita("CASA");
