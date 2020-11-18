@@ -34,89 +34,49 @@ public class MenuPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jButton6 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        btnCadastrarReceita = new javax.swing.JButton();
+        btnConferirSaldo = new javax.swing.JButton();
+        btnVisualizarDespesas = new javax.swing.JButton();
+        btnVisualizarEntradas = new javax.swing.JButton();
+        btnVisualizarLancamentos = new javax.swing.JButton();
         btnCadastrarDespesa = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Cadastrar Receita");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnCadastrarReceita.setText("Cadastrar Receita");
+        btnCadastrarReceita.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnCadastrarReceitaActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Saldo atual:");
-
-        jButton2.setText("Conferir saldo:");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnConferirSaldo.setText("Conferir saldo:");
+        btnConferirSaldo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnConferirSaldoActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Visualizar Despesas");
-
-        jButton4.setText("Visualizar Entradas");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnVisualizarDespesas.setText("Visualizar Despesas");
+        btnVisualizarDespesas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnVisualizarDespesasActionPerformed(evt);
             }
         });
 
-        jButton5.setText("Visualizar Lançamentos");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btnVisualizarEntradas.setText("Visualizar Entradas");
+        btnVisualizarEntradas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btnVisualizarEntradasActionPerformed(evt);
             }
         });
 
-        jCheckBox1.setText("jCheckBox1");
-
-        jCheckBox2.setText("jCheckBox2");
-        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+        btnVisualizarLancamentos.setText("Visualizar Lançamentos");
+        btnVisualizarLancamentos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox2ActionPerformed(evt);
+                btnVisualizarLancamentosActionPerformed(evt);
             }
         });
-
-        jCheckBox3.setText("jCheckBox3");
-
-        jButton6.setText("Filtrar");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null}
-            },
-            new String [] {
-                "Tipo de despesa", "Valor da despesa", "Data de lançamento"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(jTable1);
 
         btnCadastrarDespesa.setText("Cadastrar Despesa");
         btnCadastrarDespesa.addActionListener(new java.awt.event.ActionListener() {
@@ -132,123 +92,66 @@ public class MenuPrincipal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton3)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton4)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton5)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1)
-                                .addGap(73, 73, 73)
-                                .addComponent(btnCadastrarDespesa)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jCheckBox1)
-                                .addGap(18, 18, 18)
-                                .addComponent(jCheckBox2)
-                                .addGap(18, 18, 18)
-                                .addComponent(jCheckBox3)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton6)))
-                        .addGap(34, 34, 34)
-                        .addComponent(jButton2)))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(113, Short.MAX_VALUE))
+                    .addComponent(btnVisualizarDespesas)
+                    .addComponent(btnVisualizarEntradas)
+                    .addComponent(btnVisualizarLancamentos)
+                    .addComponent(btnCadastrarReceita)
+                    .addComponent(btnCadastrarDespesa)
+                    .addComponent(btnConferirSaldo))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jLabel1)
-                    .addComponent(jButton2)
-                    .addComponent(btnCadastrarDespesa))
-                .addGap(47, 47, 47)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5))
-                .addGap(87, 87, 87)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox1)
-                    .addComponent(jCheckBox2)
-                    .addComponent(jCheckBox3)
-                    .addComponent(jButton6))
-                .addGap(39, 39, 39)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(btnConferirSaldo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnCadastrarDespesa)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnCadastrarReceita)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnVisualizarDespesas)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnVisualizarEntradas)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnVisualizarLancamentos)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        atualizaTabela();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void btnConferirSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConferirSaldoActionPerformed
+        MostrarSaldo telaSaldo = new MostrarSaldo(this, true);
+        telaSaldo.setVisible(true);
+    }//GEN-LAST:event_btnConferirSaldoActionPerformed
 
-    private void atualizaTabela() {
-        /*ArrayList<TipoDespesa> despesas = new ArrayList<>();
-        if (jCheckBox1.isSelected()) {
-            despesas.add(TipoDespesa.A);
-        }
-        if (jCheckBox2.isSelected()) {
-            despesas.add(TipoDespesa.B);
-        }
-        if (jCheckBox3.isSelected()) {
-            despesas.add(TipoDespesa.C);
-        }
-        
-        DefaultTableModel dtm = new DefaultTableModel(despesas.size(), 0);
-        dtm.addColumn("Tipo de despesa");
-        dtm.addColumn("Valor da despesa");
-        dtm.addColumn("Data de lançamento");
-        jTable1.setModel(dtm);
-        
-        for (int i = 0; i < despesas.size(); i++) {
-            jTable1.setValueAt(despesas.get(i).getTipoDespesa(), i, 0);
-            jTable1.setValueAt(despesas.get(i).getValor(), i, 1);
-            jTable1.setValueAt(despesas.get(i).getDataLancamento(), i, 2);
-        }*/
-    }
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        atualizaTabela();
 
-    }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox2ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnCadastrarReceitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarReceitaActionPerformed
        CadastroReceita cadastroReceita = new CadastroReceita(this, true);
        cadastroReceita.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnCadastrarReceitaActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void btnVisualizarLancamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarLancamentosActionPerformed
         VisualizarLancamentos visualizarLancamentos = new VisualizarLancamentos(this, true);
         visualizarLancamentos.setVisible(true);
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_btnVisualizarLancamentosActionPerformed
 
     private void btnCadastrarDespesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarDespesaActionPerformed
         CadastroDespesa cadastroDespesa = new CadastroDespesa(this, true);
         cadastroDespesa.setVisible(true);
     }//GEN-LAST:event_btnCadastrarDespesaActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btnVisualizarEntradasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarEntradasActionPerformed
         VisualizarReceitas visualizarReceitas = new VisualizarReceitas(this, true);
         visualizarReceitas.setVisible(true);
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_btnVisualizarEntradasActionPerformed
+
+    private void btnVisualizarDespesasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarDespesasActionPerformed
+        VisualizarDespesas visualizarDespesas = new VisualizarDespesas(this, true);
+        visualizarDespesas.setVisible(true);
+    }//GEN-LAST:event_btnVisualizarDespesasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -288,17 +191,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrarDespesa;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JButton btnCadastrarReceita;
+    private javax.swing.JButton btnConferirSaldo;
+    private javax.swing.JButton btnVisualizarDespesas;
+    private javax.swing.JButton btnVisualizarEntradas;
+    private javax.swing.JButton btnVisualizarLancamentos;
     // End of variables declaration//GEN-END:variables
 }
