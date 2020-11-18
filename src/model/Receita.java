@@ -26,7 +26,7 @@ public class Receita extends Lancamento {
     }
 
     @Override
-    public void salvarDados() {
+    public void salvarDados(String nomeArquivo) {
         String dadosParaSalvar = this.getDataLancamento() + ";" + this.getValor() + ";" + this.tipoReceita; // Concatena os dados que serão salvos no arquivo
         System.out.println("Valores concatenados: ");
         System.out.println(dadosParaSalvar);
@@ -36,7 +36,7 @@ public class Receita extends Lancamento {
         BufferedWriter bufferedWriter;
         try {
             // Carrega o arquivo. O parâmetro 'true' indica que o arquivo carregado NÃO deverá ser sobreescrito, e sim feito a concatenação de todos os dados
-            fileWriter = new FileWriter("test.txt", true);
+            fileWriter = new FileWriter(nomeArquivo, true);
 
             bufferedWriter = new BufferedWriter(fileWriter);
 
@@ -51,13 +51,13 @@ public class Receita extends Lancamento {
     }
 
     @Override
-    public List<Receita> listarDados() {
+    public List<Receita> listarDados(String nomeArquivo) {
         FileReader fileReader;
         BufferedReader bufferedReader;
         ArrayList<Receita> receitas = new ArrayList<>();
 
         try {
-            fileReader = new FileReader("test.txt");
+            fileReader = new FileReader(nomeArquivo);
 
             bufferedReader = new BufferedReader(fileReader);
 
@@ -90,13 +90,13 @@ public class Receita extends Lancamento {
         return receitas;
     }
 
-    public List<Receita> listarDados(ArrayList<TipoReceita> tipoReceitas) {
+    public List<Receita> listarDados(String nomeArquivo, ArrayList<TipoReceita> tipoReceitas) {
         FileReader fileReader;
         BufferedReader bufferedReader;
         ArrayList<Receita> receitas = new ArrayList<>();
 
         try {
-            fileReader = new FileReader("test.txt");
+            fileReader = new FileReader(nomeArquivo);
 
             bufferedReader = new BufferedReader(fileReader);
 
@@ -132,14 +132,14 @@ public class Receita extends Lancamento {
         return receitas;
     }
 
-    private boolean verificaSeRegistroEhReceita(String enumeracao) {
+    protected boolean verificaSeRegistroEhReceita(String enumeracao) {
         return enumeracao.equals(TipoReceita.SALARIO.toString()) //
                 || enumeracao.equals(TipoReceita.FERIAS.toString()) // 
                 || enumeracao.equals(TipoReceita.DECIMO_TERCEIRO.toString()) //
                 || enumeracao.equals(TipoReceita.OUTRAS_ENTRADAS.toString());
     }
 
-    private TipoReceita converterStringParaTipoReceita(String tipoReceita) {
+    protected TipoReceita converterStringParaTipoReceita(String tipoReceita) {
         switch (tipoReceita) {
             case "SALARIO":
                 return TipoReceita.SALARIO;
@@ -150,7 +150,7 @@ public class Receita extends Lancamento {
             case "OUTRAS_ENTRADAS":
                 return TipoReceita.OUTRAS_ENTRADAS;
         }
-        throw new RuntimeException("Não foi possível converter o valor " + tipoReceita + "em um tipo de receita");
+        throw new RuntimeException("Não foi possível converter o valor " + tipoReceita + " em um tipo de receita");
     }
 
 }

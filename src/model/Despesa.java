@@ -26,7 +26,7 @@ public class Despesa extends Lancamento {
     }
 
     @Override
-    public void salvarDados() {
+    public void salvarDados(String nomeArquivo) {
         String dadosParaSalvar = this.getDataLancamento() + ";" + this.getValor() + ";" + this.tipoDespesa; // Concatena os dados que serão salvos no arquivo
         System.out.println("Valores concatenados: ");
         System.out.println(dadosParaSalvar);
@@ -36,7 +36,7 @@ public class Despesa extends Lancamento {
         BufferedWriter bufferedWriter;
         try {
             // Carrega o arquivo. O parâmetro 'true' indica que o arquivo carregado NÃO deverá ser sobreescrito, e sim feito a concatenação de todos os dados
-            fileWriter = new FileWriter("test.txt", true);
+            fileWriter = new FileWriter(nomeArquivo, true);
 
             bufferedWriter = new BufferedWriter(fileWriter);
 
@@ -51,13 +51,13 @@ public class Despesa extends Lancamento {
     }
 
     @Override
-    public List<Despesa> listarDados() {
+    public List<Despesa> listarDados(String nomeArquivo) {
         FileReader fileReader;
         BufferedReader bufferedReader;
         ArrayList<Despesa> despesas = new ArrayList<>();
 
         try {
-            fileReader = new FileReader("test.txt");
+            fileReader = new FileReader(nomeArquivo);
 
             bufferedReader = new BufferedReader(fileReader);
 
@@ -95,13 +95,13 @@ public class Despesa extends Lancamento {
      * @param tipoDespesas
      * @return
      */
-    public List<Despesa> listarDados(ArrayList<TipoDespesa> tipoDespesas) {
+    public List<Despesa> listarDados(String nomeArquivo, ArrayList<TipoDespesa> tipoDespesas) {
         FileReader fileReader;
         BufferedReader bufferedReader;
         ArrayList<Despesa> despesas = new ArrayList<>();
 
         try {
-            fileReader = new FileReader("test.txt");
+            fileReader = new FileReader(nomeArquivo);
 
             bufferedReader = new BufferedReader(fileReader);
 
@@ -137,9 +137,9 @@ public class Despesa extends Lancamento {
         return despesas;
     }
 
-    private boolean verificaSeRegistroEhDespesa(String enumeracao) {
+    protected boolean verificaSeRegistroEhDespesa(String enumeracao) {
         return enumeracao.equals(TipoDespesa.ALIMENTACAO.toString()) //
-                || enumeracao.equals(TipoDespesa.EDUCACAO.toString()) // 
+                || enumeracao.equals(TipoDespesa.EDUCACAO.toString()) //
                 || enumeracao.equals(TipoDespesa.ENTRETENIMENTO.toString()) //
                 || enumeracao.equals(TipoDespesa.OUTRAS_DESPESAS.toString()) //
                 || enumeracao.equals(TipoDespesa.RESIDENCIA.toString()) //
@@ -147,7 +147,7 @@ public class Despesa extends Lancamento {
                 || enumeracao.equals(TipoDespesa.TRANSPORTE.toString());
     }
 
-    private TipoDespesa converterStringParaTipoDespesa(String tipoDespesa) {
+    protected TipoDespesa converterStringParaTipoDespesa(String tipoDespesa) {
         switch (tipoDespesa) {
             case "ALIMENTACAO":
                 return TipoDespesa.ALIMENTACAO;

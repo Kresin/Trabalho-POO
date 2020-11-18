@@ -236,7 +236,7 @@ public class CadastroReceita extends javax.swing.JDialog {
         }
         
         receita.setDataLancamento(dataLancamento);
-        receita.salvarDados(); // Salva os dados
+        receita.salvarDados("test.txt"); // Salva os dados
 
         this.setVisible(false); // Fecha a tela
     }//GEN-LAST:event_btnSalvarActionPerformed

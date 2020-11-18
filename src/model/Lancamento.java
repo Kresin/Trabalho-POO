@@ -7,7 +7,7 @@ import java.time.LocalDate;
  * @author Gabriel Kresin e Iago Tambosi
  */
 public abstract class Lancamento implements Persistencia {
-    
+
     private LocalDate dataLancamento;
     private double valor;
 
@@ -26,5 +26,5 @@ public abstract class Lancamento implements Persistencia {
     public void setValor(double valor) {
         this.valor = valor;
     }
-    
+
 }

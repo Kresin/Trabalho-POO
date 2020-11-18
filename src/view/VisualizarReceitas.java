@@ -26,7 +26,7 @@ public class VisualizarReceitas extends javax.swing.JDialog {
         initComponents();
 
         Receita receita = new Receita();
-        List<Receita> receitas = receita.listarDados();
+        List<Receita> receitas = receita.listarDados("test.txt");
 
         popularTabela(receitas);
     }
@@ -242,7 +242,7 @@ public class VisualizarReceitas extends javax.swing.JDialog {
 
         if (!tipoReceitas.isEmpty()) {
             Receita receita = new Receita();
-            List<Receita> receitas = receita.listarDados(tipoReceitas);
+            List<Receita> receitas = receita.listarDados("test.txt", tipoReceitas);
             popularTabela(receitas);
         }
     }//GEN-LAST:event_btnFiltrarActionPerformed
