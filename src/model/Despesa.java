@@ -164,7 +164,7 @@ public class Despesa extends Lancamento {
             case "TRANSPORTE":
                 return TipoDespesa.TRANSPORTE;
         }
-        throw new RuntimeException("Não foi possível converter o valor " + tipoDespesa + "em um tipo de despesa");
+        throw new RuntimeException("Não foi possível converter o valor " + tipoDespesa + " em um tipo de despesa");
     }
 
 }

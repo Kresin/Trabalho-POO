@@ -15,7 +15,7 @@ public class Saldo {
      *
      * @return
      */
-    public double obterSaldoNaDataAtual() {
+    public double obterSaldoNaDataAtual(String nomeArquivo) {
         /*Entrada entrada = new Entrada();
         ArrayList<String> listarDados = entrada.listarDados();
         for (String registro : listarDados) {
@@ -24,10 +24,10 @@ public class Saldo {
         LocalDate dateNow = LocalDate.now();
         double saldo = 0;
         Receita receita = new Receita();
-        List<Receita> receitas = receita.listarDados("test.txt");
+        List<Receita> receitas = receita.listarDados(nomeArquivo);
         
         Despesa despesa = new Despesa();
-        List<Despesa> despesas = despesa.listarDados("test.txt");
+        List<Despesa> despesas = despesa.listarDados(nomeArquivo);
         
         List<Lancamento> lancamentos = new ArrayList<>();
         lancamentos.addAll(receitas);
@@ -47,13 +47,13 @@ public class Saldo {
         return saldo;
     }
     
-    public double obterSaldo() {
+    public double obterSaldo(String nomeArquivo) {
         double saldo = 0;
         Receita receita = new Receita();
-        List<Receita> receitas = receita.listarDados("test.txt");
+        List<Receita> receitas = receita.listarDados(nomeArquivo);
         
         Despesa despesa = new Despesa();
-        List<Despesa> despesas = despesa.listarDados("test.txt");
+        List<Despesa> despesas = despesa.listarDados(nomeArquivo);
         
         List<Lancamento> lancamentos = new ArrayList<>();
         lancamentos.addAll(receitas);

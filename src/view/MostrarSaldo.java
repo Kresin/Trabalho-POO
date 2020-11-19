@@ -26,8 +26,8 @@ public class MostrarSaldo extends javax.swing.JDialog {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         
         Saldo saldo = new Saldo();
-        jlSaldoAtual.setText("" + saldo.obterSaldoNaDataAtual()); 
-        jlSaldoReal.setText("" + saldo.obterSaldo());
+        jlSaldoAtual.setText("" + saldo.obterSaldoNaDataAtual("test.txt")); 
+        jlSaldoReal.setText("" + saldo.obterSaldo("test.txt"));
         jlDataAtual.setText(localDate.format(formatter));
     }
 
