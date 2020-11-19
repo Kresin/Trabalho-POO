@@ -16,7 +16,7 @@ import model.TipoReceita;
 
 /**
  *
- * @author gabri
+ * @author Gabriel Kresin e Iago Tambosi
  */
 public class CadastroReceita extends javax.swing.JDialog {
 

@@ -14,7 +14,7 @@ import model.TipoReceita;
 
 /**
  *
- * @author gabri
+ * @author Gabriel Kresin e Iago Tambosi
  */
 public class VisualizarReceitas extends javax.swing.JDialog {
 
@@ -31,6 +31,13 @@ public class VisualizarReceitas extends javax.swing.JDialog {
         popularTabela(receitas);
     }
 
+    /**
+     * Popula a tabela da tela com base nos dados da lista fornecida por
+     * parâmetro.
+     *
+     * @param receitas  Lista de receitas que serão usadas para preencher a
+     * tabela.
+     */
     private void popularTabela(List<Receita> receitas) {
         Collections.sort(receitas, (o1, o2) -> {
             if (o1.getDataLancamento().isBefore(o2.getDataLancamento())) {

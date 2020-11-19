@@ -3,7 +3,6 @@ package model;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import javafx.util.converter.LocalDateStringConverter;
 
 /**
  *
@@ -12,15 +11,13 @@ import javafx.util.converter.LocalDateStringConverter;
 public class Saldo {
     
     /**
-     *
-     * @return
+     * Calcula o valor do saldo para a data de hoje com base nos registros contidos no arquivo
+     * passado como parâmetro.
+     * 
+     * @param nomeArquivo
+     * @return Valor do saldo.
      */
     public double obterSaldoNaDataAtual(String nomeArquivo) {
-        /*Entrada entrada = new Entrada();
-        ArrayList<String> listarDados = entrada.listarDados();
-        for (String registro : listarDados) {
-            
-        }*/
         LocalDate dateNow = LocalDate.now();
         double saldo = 0;
         Receita receita = new Receita();
@@ -47,6 +44,12 @@ public class Saldo {
         return saldo;
     }
     
+    /**
+     * Calcula o valor do saldo sem considerar uma data limite. Ou seja, o saldo é calculado
+     * com base em todos os valores contidos no registro passado por parâmetro.
+     * 
+     * @return Valor do saldo.
+     */
     public double obterSaldo(String nomeArquivo) {
         double saldo = 0;
         Receita receita = new Receita();

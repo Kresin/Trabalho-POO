@@ -5,16 +5,9 @@
  */
 package view;
 
-import java.time.LocalDate;
-import java.time.Month;
-import java.util.ArrayList;
-import javax.swing.table.DefaultTableModel;
-import model.Despesa;
-import model.TipoDespesa;
-
 /**
  *
- * @author gabri
+ * @author Gabriel Kresin e Iago Tambosi
  */
 public class MenuPrincipal extends javax.swing.JFrame {
 
@@ -134,8 +127,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         MostrarSaldo telaSaldo = new MostrarSaldo(this, true);
         telaSaldo.setVisible(true);
     }//GEN-LAST:event_btnConferirSaldoActionPerformed
-
-
 
     private void btnCadastrarReceitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarReceitaActionPerformed
        CadastroReceita cadastroReceita = new CadastroReceita(this, true);

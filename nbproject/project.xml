@@ -11,5 +11,23 @@
                 <root id="test.src.dir"/>
             </test-roots>
         </data>
+        <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
+            <word>arquivo</word>
+            <word>Calcula</word>
+            <word>calculado</word>
+            <word>considerar</word>
+            <word>contidos</word>
+            <word>hoje</word>
+            <word>limite</word>
+            <word>os</word>
+            <word>parâmetro</word>
+            <word>passado</word>
+            <word>por</word>
+            <word>registro</word>
+            <word>registros</word>
+            <word>saldo</word>
+            <word>todos</word>
+            <word>valores</word>
+        </spellchecker-wordlist>
     </configuration>
 </project>

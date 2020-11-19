@@ -11,7 +11,7 @@ import model.Saldo;
 
 /**
  *
- * @author gabri
+ * @author Gabriel Kresin e Iago Tambosi
  */
 public class MostrarSaldo extends javax.swing.JDialog {
 
