@@ -13,7 +13,11 @@ import java.time.format.DateTimeFormatter;
  * @author iagot
  */
 public class Util {
-    
+    /**
+     * Este método retorna uma String que corresponde ao objeto localDate (inserido como parâmetro) no formato de data "dd/mm/aaaa"
+     * @param localDate
+     * @return 
+     */
     public static String formatarData(LocalDate localDate){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         return localDate.format(formatter);
