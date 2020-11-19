@@ -14,7 +14,7 @@ import model.TipoDespesa;
 
 /**
  *
- * @author gabri
+ * @author Gabriel Kresin e Iago Tambosi
  */
 public class VisualizarDespesas extends javax.swing.JDialog {
 
@@ -24,14 +24,19 @@ public class VisualizarDespesas extends javax.swing.JDialog {
     public VisualizarDespesas(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        
+
         Despesa despesa = new Despesa();
         List<Despesa> despesas = despesa.listarDados("test.txt");
 
         popularTabela(despesas);
     }
-    
-        private void popularTabela(List<Despesa> despesas) {
+
+    /**
+     * Popula a tabela da tela com base nos dados da lista fornecida por parâmetro.
+     * 
+     * @param despesas Lista de despesas que serão usadas para preencher a tabela.
+     */
+    private void popularTabela(List<Despesa> despesas) {
         Collections.sort(despesas, (o1, o2) -> {
             if (o1.getDataLancamento().isBefore(o2.getDataLancamento())) {
                 return -1;
@@ -221,7 +226,7 @@ public class VisualizarDespesas extends javax.swing.JDialog {
 
     private void jbFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbFiltrarActionPerformed
         // TODO add your handling code here:
-                ArrayList<TipoDespesa> tipoDespesas = new ArrayList<>();
+        ArrayList<TipoDespesa> tipoDespesas = new ArrayList<>();
 
         if (cbAlimentacao.isSelected()) {
             tipoDespesas.add(TipoDespesa.ALIMENTACAO);
@@ -250,11 +255,10 @@ public class VisualizarDespesas extends javax.swing.JDialog {
             List<Despesa> despesas = despesa.listarDados("test.txt", tipoDespesas);
             popularTabela(despesas);
         }
-        
+
     }//GEN-LAST:event_jbFiltrarActionPerformed
 
     private void jbLimparFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbLimparFiltroActionPerformed
-        // TODO add your handling code here:
         cbAlimentacao.setSelected(false);
         cbEducacao.setSelected(false);
         cbEntretenimento.setSelected(false);
@@ -265,7 +269,6 @@ public class VisualizarDespesas extends javax.swing.JDialog {
     }//GEN-LAST:event_jbLimparFiltroActionPerformed
 
     private void jbFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbFecharActionPerformed
-        // TODO add your handling code here:
         this.setVisible(false);
     }//GEN-LAST:event_jbFecharActionPerformed
 

@@ -15,7 +15,7 @@ import model.Receita;
 
 /**
  *
- * @author gabri
+ * @author Gabriel Kresin e Iago Tambosi
  */
 public class VisualizarLancamentos extends javax.swing.JDialog {
 
@@ -39,6 +39,11 @@ public class VisualizarLancamentos extends javax.swing.JDialog {
         popularTabela(lancamentos);
     }
 
+    /**
+     * Popula a tabela da tela com base nos dados da lista fornecida por parâmetro.
+     * 
+     * @param lancamentos Lista de lançamentos que serão usadas para preencher a tabela.
+     */
     private void popularTabela(List<Lancamento> lancamentos) {
         Collections.sort(lancamentos, (o1, o2) -> {
             if (o1.getDataLancamento().isBefore(o2.getDataLancamento())) {
