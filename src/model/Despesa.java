@@ -91,9 +91,11 @@ public class Despesa extends Lancamento {
     }
 
     /**
-     *
-     * @param tipoDespesas
-     * @return
+     * Retorna todos os dados contidos no arquivo especificado com base nos filtros passados.
+     * 
+     * @param nomeArquivo Arquivo onde os dados serão buscados.
+     * @param tipoDespesas  Lista de despesas que serão consideradas para fazer o filtro na hora de retornar os dados.
+     * @return Lista contendo os dados filtrados do arquivo.
      */
     public List<Despesa> listarDados(String nomeArquivo, ArrayList<TipoDespesa> tipoDespesas) {
         FileReader fileReader;
@@ -137,6 +139,14 @@ public class Despesa extends Lancamento {
         return despesas;
     }
 
+    /**
+     * Verifica se o a String passada por parâmtro é uma enumaração da classe TipoDespesa.
+     * Caso o valor passado seja compatível com alguma enumeração é retornado true, 
+     * caso contrário é retornado false.
+     * 
+     * @param enumeracao String contendo o nome da enumeração que será verificada.
+     * @return Valor booleano indicando se o registro é uma despesa.
+     */
     protected boolean verificaSeRegistroEhDespesa(String enumeracao) {
         return enumeracao.equals(TipoDespesa.ALIMENTACAO.toString()) //
                 || enumeracao.equals(TipoDespesa.EDUCACAO.toString()) //
@@ -147,6 +157,13 @@ public class Despesa extends Lancamento {
                 || enumeracao.equals(TipoDespesa.TRANSPORTE.toString());
     }
 
+    /**
+     * Converte uma String em um objeto do tipo TipoDespesa. Caso não for possível converter a
+     * String informada, é lançada uma exceção.
+     * 
+     * @param tipoDespesa
+     * @return
+     */
     protected TipoDespesa converterStringParaTipoDespesa(String tipoDespesa) {
         switch (tipoDespesa) {
             case "ALIMENTACAO":

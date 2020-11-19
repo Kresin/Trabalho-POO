@@ -90,6 +90,13 @@ public class Receita extends Lancamento {
         return receitas;
     }
 
+    /**
+     * Retorna todos os dados contidos no arquivo especificado com base nos filtros passados.
+     * 
+     * @param nomeArquivo Arquivo onde os dados serão buscados.
+     * @param tipoReceitas Lista de receitas que serão consideradas para fazer o filtro na hora de retornar os dados.
+     * @return Lista contendo os dados filtrados do arquivo.
+     */
     public List<Receita> listarDados(String nomeArquivo, ArrayList<TipoReceita> tipoReceitas) {
         FileReader fileReader;
         BufferedReader bufferedReader;
@@ -132,6 +139,14 @@ public class Receita extends Lancamento {
         return receitas;
     }
 
+    /**
+     * Verifica se o a String passada por parâmtro é uma enumaração da classe TipoReceita.
+     * Caso o valor passado seja compatível com alguma enumeração é retornado true, 
+     * caso contrário é retornado false.
+     * 
+     * @param enumeracao String contendo o nome da enumeração que será verificada.
+     * @return Valor booleano indicando se o registro é uma receita.
+     */
     protected boolean verificaSeRegistroEhReceita(String enumeracao) {
         return enumeracao.equals(TipoReceita.SALARIO.toString()) //
                 || enumeracao.equals(TipoReceita.FERIAS.toString()) // 
@@ -139,6 +154,13 @@ public class Receita extends Lancamento {
                 || enumeracao.equals(TipoReceita.OUTRAS_ENTRADAS.toString());
     }
 
+    /**
+     * Converte uma String para uma enumeração do tipo TipoReceita. Caso o valor passado não seja compatível
+     * com nenhuma enumeração da classe TipoReceita, é lançada uma exceção.
+     * 
+     * @param tipoReceita String a ser convertida em uma enumeração de TipoReceita.
+     * @return Enumeração de TipoReceita.
+     */
     protected TipoReceita converterStringParaTipoReceita(String tipoReceita) {
         switch (tipoReceita) {
             case "SALARIO":

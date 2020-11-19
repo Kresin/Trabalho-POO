@@ -16,11 +16,16 @@ import org.junit.runners.MethodSorters;
 
 /**
  *
- * @author gabri
+ * @author Gabriel Kresin e Iago Tambosi
  */
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ReceitaTest {
 
+    /**
+     * Prepara o ambiente para a execução dos testes. Para preparação dos testes é criado um
+     * arquivo temporário nomeado como "test-unitario.txt" na raíz do projeto. Esse arquivo será usado
+     * para que os métodos da classe testada possam manipular e persistir os dados informados no teste.
+     */
     @BeforeClass
     public static void prepararTestes() {
         File file = new File(System.getProperty("user.dir") + "\\test-unitario.txt");
@@ -37,6 +42,9 @@ public class ReceitaTest {
         }
     }
 
+    /**
+     * Exclui os registros gerados pelas execuções dos testes.
+     */
     @AfterClass
     public static void limparExecucao() {
         File file = new File("test-unitario.txt");
