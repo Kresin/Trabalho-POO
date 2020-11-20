@@ -83,6 +83,7 @@ public class Despesa extends Lancamento {
                     despesas.add(d);
                 }
             }
+            bufferedReader.close();
         } catch (IOException ex) {
             System.out.println("Erro ao carregar dados.");
         }
@@ -91,10 +92,12 @@ public class Despesa extends Lancamento {
     }
 
     /**
-     * Retorna todos os dados contidos no arquivo especificado com base nos filtros passados.
-     * 
+     * Retorna todos os dados contidos no arquivo especificado com base nos
+     * filtros passados.
+     *
      * @param nomeArquivo Arquivo onde os dados serão buscados.
-     * @param tipoDespesas  Lista de despesas que serão consideradas para fazer o filtro na hora de retornar os dados.
+     * @param tipoDespesas Lista de despesas que serão consideradas para fazer o
+     * filtro na hora de retornar os dados.
      * @return Lista contendo os dados filtrados do arquivo.
      */
     public List<Despesa> listarDados(String nomeArquivo, ArrayList<TipoDespesa> tipoDespesas) {
@@ -132,6 +135,7 @@ public class Despesa extends Lancamento {
                     }
                 }
             }
+            bufferedReader.close();
         } catch (IOException ex) {
             System.out.println("Erro ao carregar dados.");
         }
@@ -140,11 +144,12 @@ public class Despesa extends Lancamento {
     }
 
     /**
-     * Verifica se o a String passada por parâmtro é uma enumaração da classe TipoDespesa.
-     * Caso o valor passado seja compatível com alguma enumeração é retornado true, 
-     * caso contrário é retornado false.
-     * 
-     * @param enumeracao String contendo o nome da enumeração que será verificada.
+     * Verifica se o a String passada por parâmtro é uma enumaração da classe
+     * TipoDespesa. Caso o valor passado seja compatível com alguma enumeração é
+     * retornado true, caso contrário é retornado false.
+     *
+     * @param enumeracao String contendo o nome da enumeração que será
+     * verificada.
      * @return Valor booleano indicando se o registro é uma despesa.
      */
     protected boolean verificaSeRegistroEhDespesa(String enumeracao) {
@@ -158,9 +163,9 @@ public class Despesa extends Lancamento {
     }
 
     /**
-     * Converte uma String em um objeto do tipo TipoDespesa. Caso não for possível converter a
-     * String informada, é lançada uma exceção.
-     * 
+     * Converte uma String em um objeto do tipo TipoDespesa. Caso não for
+     * possível converter a String informada, é lançada uma exceção.
+     *
      * @param tipoDespesa
      * @return
      */
@@ -182,6 +187,31 @@ public class Despesa extends Lancamento {
                 return TipoDespesa.TRANSPORTE;
         }
         throw new RuntimeException("Não foi possível converter o valor " + tipoDespesa + " em um tipo de despesa");
+    }
+
+    /**
+     * Converte uma enumeração do tipo TipoDespesa para uma String.
+     * 
+     * @param tipoDespesa Enumeração de TipoDespesa a ser convertida.
+     * @return String convertida.
+     */
+    public String converterTipoDespesaParaString(TipoDespesa tipoDespesa) {
+        switch (tipoDespesa) {
+            case ALIMENTACAO:
+                return "Alimentação";
+            case EDUCACAO:
+                return "Educação";
+            case ENTRETENIMENTO:
+                return "Entretenimento";
+            case RESIDENCIA:
+                return "Residência";
+            case SAUDE:
+                return "Saúde";
+            case TRANSPORTE:
+                return "Transporte";
+            default:
+                return "Outras despesas";
+        }
     }
 
 }

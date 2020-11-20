@@ -10,6 +10,7 @@ import java.util.Collections;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import model.Despesa;
+import model.Formatador;
 import model.Lancamento;
 import model.Receita;
 
@@ -27,10 +28,10 @@ public class VisualizarLancamentos extends javax.swing.JDialog {
         initComponents();
 
         Receita receita = new Receita();
-        List<Receita> receitas = receita.listarDados("test.txt");
+        List<Receita> receitas = receita.listarDados("lancamentos.csv");
 
         Despesa despesa = new Despesa();
-        List<Despesa> despesas = despesa.listarDados("test.txt");
+        List<Despesa> despesas = despesa.listarDados("lancamentos.csv");
 
         List<Lancamento> lancamentos = new ArrayList<>();
         lancamentos.addAll(receitas);
@@ -57,27 +58,28 @@ public class VisualizarLancamentos extends javax.swing.JDialog {
         dtm.addColumn("Tipo de Lançamento");
         dtm.addColumn("Tipo de Receita");
         dtm.addColumn("Data");
-        dtm.addColumn("Valor");
-        dtm.addColumn("Saldo");
+        dtm.addColumn("Valor (R$)");
+        dtm.addColumn("Saldo (R$)");
         tableLancamentos.setModel(dtm);
 
+        Formatador formatador = new Formatador();
         double saldo = 0;
         for (int i = 0; i < lancamentos.size(); i++) {
             if (lancamentos.get(i) instanceof Receita) {
                 Receita receita = (Receita) lancamentos.get(i);
                 saldo += receita.getValor();
                 tableLancamentos.setValueAt("Receita", i, 0);
-                tableLancamentos.setValueAt(receita.getTipoReceita(), i, 2);
-                tableLancamentos.setValueAt(receita.getDataLancamento(), i, 3);
-                tableLancamentos.setValueAt(receita.getValor(), i, 1);
+                tableLancamentos.setValueAt(receita.converterTipoReceitaParaString(receita.getTipoReceita()), i, 1);
+                tableLancamentos.setValueAt(formatador.formatarData(receita.getDataLancamento()), i, 2);
+                tableLancamentos.setValueAt(receita.getValor(), i, 3);
                 tableLancamentos.setValueAt(saldo, i, 4);
             } else {
                 Despesa despesa = (Despesa) lancamentos.get(i);
                 saldo -= despesa.getValor();
                 tableLancamentos.setValueAt("Despesa", i, 0);
-                tableLancamentos.setValueAt(despesa.getTipoDespesa(), i, 2);
-                tableLancamentos.setValueAt(despesa.getDataLancamento(), i, 3);
-                tableLancamentos.setValueAt(despesa.getValor(), i, 1);
+                tableLancamentos.setValueAt(despesa.getTipoDespesa(), i, 1);
+                tableLancamentos.setValueAt(formatador.formatarData(despesa.getDataLancamento()), i, 2);
+                tableLancamentos.setValueAt(despesa.getValor(), i, 3);
                 tableLancamentos.setValueAt(saldo, i, 4);
             }
         }
@@ -109,7 +111,7 @@ public class VisualizarLancamentos extends javax.swing.JDialog {
 
             },
             new String [] {
-                "Tipo de Lançamento", "Tipo de Receita/Despesa", "Data", "Valor", "Saldo"
+                "Tipo de Lançamento", "Tipo de Receita/Despesa", "Data", "Valor (R$)", "Saldo (R$)"
             }
         ) {
             boolean[] canEdit = new boolean [] {

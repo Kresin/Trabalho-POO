@@ -9,6 +9,6 @@ public enum TipoReceita {
     SALARIO,
     DECIMO_TERCEIRO,
     FERIAS,
-    OUTRAS_ENTRADAS
+    OUTRAS_RECEITAS
     
 }

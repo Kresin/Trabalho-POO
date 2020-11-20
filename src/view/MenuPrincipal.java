@@ -7,12 +7,12 @@ package view;
 
 /**
  *
- * @author Gabriel Kresin e Iago Tambosi
+ * @author gabri
  */
 public class MenuPrincipal extends javax.swing.JFrame {
 
     /**
-     * Creates new form Exemplo
+     * Creates new form MenuPrincipal
      */
     public MenuPrincipal() {
         initComponents();
@@ -27,131 +27,228 @@ public class MenuPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnCadastrarReceita = new javax.swing.JButton();
-        btnConferirSaldo = new javax.swing.JButton();
-        btnVisualizarDespesas = new javax.swing.JButton();
-        btnVisualizarEntradas = new javax.swing.JButton();
-        btnVisualizarLancamentos = new javax.swing.JButton();
-        btnCadastrarDespesa = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        btnCadastrarReceita = new javax.swing.JButton();
+        btnVisualizarReceita = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        btnCadastrarDespesa = new javax.swing.JButton();
+        btnVisualizarDespesas = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        btnVisualizarLancamentos = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        btnConferirSaldo = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnCadastrarReceita.setText("Cadastrar Receita");
+        jLabel1.setText("CONTROLADOR DE DESPESAS");
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Receita"));
+
+        btnCadastrarReceita.setText("Cadastrar");
         btnCadastrarReceita.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCadastrarReceitaActionPerformed(evt);
             }
         });
 
-        btnConferirSaldo.setText("Conferir saldo:");
-        btnConferirSaldo.addActionListener(new java.awt.event.ActionListener() {
+        btnVisualizarReceita.setText("Visualizar");
+        btnVisualizarReceita.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConferirSaldoActionPerformed(evt);
+                btnVisualizarReceitaActionPerformed(evt);
             }
         });
 
-        btnVisualizarDespesas.setText("Visualizar Despesas");
-        btnVisualizarDespesas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVisualizarDespesasActionPerformed(evt);
-            }
-        });
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnCadastrarReceita)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnVisualizarReceita)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCadastrarReceita)
+                    .addComponent(btnVisualizarReceita))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
-        btnVisualizarEntradas.setText("Visualizar Entradas");
-        btnVisualizarEntradas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVisualizarEntradasActionPerformed(evt);
-            }
-        });
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Despesa"));
 
-        btnVisualizarLancamentos.setText("Visualizar Lançamentos");
-        btnVisualizarLancamentos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVisualizarLancamentosActionPerformed(evt);
-            }
-        });
-
-        btnCadastrarDespesa.setText("Cadastrar Despesa");
+        btnCadastrarDespesa.setText("Cadastrar");
         btnCadastrarDespesa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCadastrarDespesaActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("MenuPrincipal");
+        btnVisualizarDespesas.setText("Visualizar");
+        btnVisualizarDespesas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVisualizarDespesasActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnCadastrarDespesa)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnVisualizarDespesas)
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCadastrarDespesa)
+                    .addComponent(btnVisualizarDespesas))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Lançamentos"));
+
+        btnVisualizarLancamentos.setText("Visualizar");
+        btnVisualizarLancamentos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVisualizarLancamentosActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnVisualizarLancamentos)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnVisualizarLancamentos)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Saldo"));
+
+        btnConferirSaldo.setText("Conferir");
+        btnConferirSaldo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConferirSaldoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnConferirSaldo)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnConferirSaldo)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jLabel2.setText("Feito por Gabriel Kresin e Iago Tambosi");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnCadastrarReceita)
-                            .addComponent(btnVisualizarEntradas)
-                            .addComponent(btnVisualizarLancamentos)
-                            .addComponent(btnCadastrarDespesa)
-                            .addComponent(btnConferirSaldo)
-                            .addComponent(btnVisualizarDespesas))
-                        .addGap(0, 38, Short.MAX_VALUE)))
+                        .addContainerGap()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel2)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(108, 108, 108)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(48, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(12, 12, 12)
+                .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(btnConferirSaldo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnCadastrarDespesa)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnCadastrarReceita)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnVisualizarDespesas)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnVisualizarEntradas)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnVisualizarLancamentos)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnConferirSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConferirSaldoActionPerformed
-        MostrarSaldo telaSaldo = new MostrarSaldo(this, true);
-        telaSaldo.setVisible(true);
-    }//GEN-LAST:event_btnConferirSaldoActionPerformed
-
     private void btnCadastrarReceitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarReceitaActionPerformed
-       CadastroReceita cadastroReceita = new CadastroReceita(this, true);
-       cadastroReceita.setVisible(true);
+        CadastroReceita cadastroReceita = new CadastroReceita(this, true);
+        cadastroReceita.setVisible(true);
     }//GEN-LAST:event_btnCadastrarReceitaActionPerformed
 
-    private void btnVisualizarLancamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarLancamentosActionPerformed
-        VisualizarLancamentos visualizarLancamentos = new VisualizarLancamentos(this, true);
-        visualizarLancamentos.setVisible(true);
-    }//GEN-LAST:event_btnVisualizarLancamentosActionPerformed
+    private void btnVisualizarReceitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarReceitaActionPerformed
+        VisualizarReceitas visualizarReceitas = new VisualizarReceitas(this, true);
+        visualizarReceitas.setVisible(true);
+    }//GEN-LAST:event_btnVisualizarReceitaActionPerformed
 
     private void btnCadastrarDespesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarDespesaActionPerformed
         CadastroDespesa cadastroDespesa = new CadastroDespesa(this, true);
         cadastroDespesa.setVisible(true);
     }//GEN-LAST:event_btnCadastrarDespesaActionPerformed
 
-    private void btnVisualizarEntradasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarEntradasActionPerformed
-        VisualizarReceitas visualizarReceitas = new VisualizarReceitas(this, true);
-        visualizarReceitas.setVisible(true);
-    }//GEN-LAST:event_btnVisualizarEntradasActionPerformed
-
     private void btnVisualizarDespesasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarDespesasActionPerformed
         VisualizarDespesas visualizarDespesas = new VisualizarDespesas(this, true);
         visualizarDespesas.setVisible(true);
     }//GEN-LAST:event_btnVisualizarDespesasActionPerformed
+
+    private void btnVisualizarLancamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarLancamentosActionPerformed
+        VisualizarLancamentos visualizarLancamentos = new VisualizarLancamentos(this, true);
+        visualizarLancamentos.setVisible(true);
+    }//GEN-LAST:event_btnVisualizarLancamentosActionPerformed
+
+    private void btnConferirSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConferirSaldoActionPerformed
+        MostrarSaldo mostrarSaldo = new MostrarSaldo(this, true);
+        mostrarSaldo.setVisible(true);
+    }//GEN-LAST:event_btnConferirSaldoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -179,7 +276,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -194,8 +290,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnCadastrarReceita;
     private javax.swing.JButton btnConferirSaldo;
     private javax.swing.JButton btnVisualizarDespesas;
-    private javax.swing.JButton btnVisualizarEntradas;
     private javax.swing.JButton btnVisualizarLancamentos;
+    private javax.swing.JButton btnVisualizarReceita;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     // End of variables declaration//GEN-END:variables
 }

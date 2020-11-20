@@ -83,6 +83,7 @@ public class Receita extends Lancamento {
                     receitas.add(r);
                 }
             }
+            bufferedReader.close();
         } catch (IOException ex) {
             System.out.println("Erro ao carregar dados.");
         }
@@ -132,6 +133,7 @@ public class Receita extends Lancamento {
                     }
                 }
             }
+            bufferedReader.close();
         } catch (IOException ex) {
             System.out.println("Erro ao carregar dados.");
         }
@@ -151,7 +153,7 @@ public class Receita extends Lancamento {
         return enumeracao.equals(TipoReceita.SALARIO.toString()) //
                 || enumeracao.equals(TipoReceita.FERIAS.toString()) // 
                 || enumeracao.equals(TipoReceita.DECIMO_TERCEIRO.toString()) //
-                || enumeracao.equals(TipoReceita.OUTRAS_ENTRADAS.toString());
+                || enumeracao.equals(TipoReceita.OUTRAS_RECEITAS.toString());
     }
 
     /**
@@ -169,10 +171,29 @@ public class Receita extends Lancamento {
                 return TipoReceita.FERIAS;
             case "DECIMO_TERCEIRO":
                 return TipoReceita.DECIMO_TERCEIRO;
-            case "OUTRAS_ENTRADAS":
-                return TipoReceita.OUTRAS_ENTRADAS;
+            case "OUTRAS_RECEITAS":
+                return TipoReceita.OUTRAS_RECEITAS;
         }
         throw new RuntimeException("Não foi possível converter o valor " + tipoReceita + " em um tipo de receita");
+    }
+    
+    /**
+     * Converte uma enumeração do tipo TipoReceita para uma String.
+     * 
+     * @param tipoReceita Enumeração de TipoReceita a ser convertida.
+     * @return String convertida.
+     */
+    public String converterTipoReceitaParaString(TipoReceita tipoReceita) {
+        switch (tipoReceita) {
+            case SALARIO:
+                return "Salário";
+            case DECIMO_TERCEIRO:
+                return "Décimo terceiro";
+            case FERIAS:
+                return "Férias";
+            default:
+                return "Outras receitas";
+        }
     }
 
 }

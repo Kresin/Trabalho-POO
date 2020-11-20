@@ -26,8 +26,8 @@ public class MostrarSaldo extends javax.swing.JDialog {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         
         Saldo saldo = new Saldo();
-        jlSaldoAtual.setText("" + saldo.obterSaldoNaDataAtual("test.txt")); 
-        jlSaldoReal.setText("" + saldo.obterSaldo("test.txt"));
+        jlSaldoAtual.setText("R$ " + saldo.obterSaldoNaDataAtual("lancamentos.csv")); 
+        jlSaldoReal.setText("R$ " + saldo.obterSaldo("lancamentos.csv"));
         jlDataAtual.setText(localDate.format(formatter));
     }
 
@@ -55,6 +55,7 @@ public class MostrarSaldo extends javax.swing.JDialog {
         jLabel1.setText("Atual:");
 
         jLabel2.setText("Projeção:");
+        jLabel2.setToolTipText("A projeção é calculada com base em todos os lançamentos já cadastrados");
 
         jlSaldoAtual.setText("0,00");
 
@@ -70,7 +71,7 @@ public class MostrarSaldo extends javax.swing.JDialog {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -131,7 +132,7 @@ public class MostrarSaldo extends javax.swing.JDialog {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }

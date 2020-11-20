@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
+import model.Formatador;
 import model.Receita;
 import model.TipoReceita;
 
@@ -26,7 +27,7 @@ public class VisualizarReceitas extends javax.swing.JDialog {
         initComponents();
 
         Receita receita = new Receita();
-        List<Receita> receitas = receita.listarDados("test.txt");
+        List<Receita> receitas = receita.listarDados("lancamentos.csv");
 
         popularTabela(receitas);
     }
@@ -35,7 +36,7 @@ public class VisualizarReceitas extends javax.swing.JDialog {
      * Popula a tabela da tela com base nos dados da lista fornecida por
      * parâmetro.
      *
-     * @param receitas  Lista de receitas que serão usadas para preencher a
+     * @param receitas Lista de receitas que serão usadas para preencher a
      * tabela.
      */
     private void popularTabela(List<Receita> receitas) {
@@ -50,12 +51,14 @@ public class VisualizarReceitas extends javax.swing.JDialog {
         DefaultTableModel dtm = new DefaultTableModel(receitas.size(), 0);
         dtm.addColumn("Tipo de Receita");
         dtm.addColumn("Data de lançamento");
-        dtm.addColumn("Valor");
+        dtm.addColumn("Valor (R$)");
         tableReceitas.setModel(dtm);
 
+        Formatador formatador = new Formatador();
+        Receita receita = new Receita();
         for (int i = 0; i < receitas.size(); i++) {
-            tableReceitas.setValueAt(receitas.get(i).getTipoReceita(), i, 0);
-            tableReceitas.setValueAt(receitas.get(i).getDataLancamento(), i, 1);
+            tableReceitas.setValueAt(receita.converterTipoReceitaParaString(receitas.get(i).getTipoReceita()), i, 0);
+            tableReceitas.setValueAt(formatador.formatarData(receitas.get(i).getDataLancamento()), i, 1);
             tableReceitas.setValueAt(receitas.get(i).getValor(), i, 2);
         }
     }
@@ -144,7 +147,7 @@ public class VisualizarReceitas extends javax.swing.JDialog {
 
             },
             new String [] {
-                "Tipo de receita", "Data de lançamento", "Valor"
+                "Tipo de receita", "Data de lançamento", "Valor (R$)"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -244,12 +247,16 @@ public class VisualizarReceitas extends javax.swing.JDialog {
             tipoReceitas.add(TipoReceita.DECIMO_TERCEIRO);
         }
         if (checkBoxOutrasEntradas.isSelected()) {
-            tipoReceitas.add(TipoReceita.OUTRAS_ENTRADAS);
+            tipoReceitas.add(TipoReceita.OUTRAS_RECEITAS);
         }
 
         if (!tipoReceitas.isEmpty()) {
             Receita receita = new Receita();
-            List<Receita> receitas = receita.listarDados("test.txt", tipoReceitas);
+            List<Receita> receitas = receita.listarDados("lancamentos.csv", tipoReceitas);
+            popularTabela(receitas);
+        } else {
+            Receita receita = new Receita();
+            List<Receita> receitas = receita.listarDados("lancamentos.csv");
             popularTabela(receitas);
         }
     }//GEN-LAST:event_btnFiltrarActionPerformed
@@ -265,7 +272,7 @@ public class VisualizarReceitas extends javax.swing.JDialog {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }

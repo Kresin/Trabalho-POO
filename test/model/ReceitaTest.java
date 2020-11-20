@@ -1,7 +1,6 @@
 package model;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDate;
@@ -21,42 +20,16 @@ import org.junit.runners.MethodSorters;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ReceitaTest {
 
-    /**
-     * Prepara o ambiente para a execução dos testes. Para preparação dos testes é criado um
-     * arquivo temporário nomeado como "test-unitario.txt" na raíz do projeto. Esse arquivo será usado
-     * para que os métodos da classe testada possam manipular e persistir os dados informados no teste.
-     */
     @BeforeClass
     public static void prepararTestes() {
-        File file = new File(System.getProperty("user.dir") + "\\test-unitario.txt");
-        boolean sucesso;
-        try {
-            sucesso = file.createNewFile();
-            if (sucesso) {
-                System.out.println("Arquivo criado com sucesso em: " + file.getCanonicalPath());
-            } else {
-                System.out.println("Já existe um arquivo com esse nome em: " + file.getCanonicalPath());
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        PersistenciaBaseTest persistencia = new PersistenciaBaseTest();
+        persistencia.criarArquivoParaTeste("test-unitario.txt");
     }
 
-    /**
-     * Exclui os registros gerados pelas execuções dos testes.
-     */
     @AfterClass
     public static void limparExecucao() {
-        File file = new File("test-unitario.txt");
-        try {
-            if (file.delete()) {
-                System.out.println("Arquivo de teste excluído com sucesso");
-            } else {
-                System.out.println("Não foi possível exlcuír o arquivo de teste");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        PersistenciaBaseTest persistencia = new PersistenciaBaseTest();
+        persistencia.excluiArquivoDeTeste("test-unitario.txt");
     }
 
     @Test
@@ -128,7 +101,7 @@ public class ReceitaTest {
         resultado = receita.verificaSeRegistroEhReceita("DECIMO_TERCEIRO");
         Assert.assertEquals(true, resultado);
 
-        resultado = receita.verificaSeRegistroEhReceita("OUTRAS_ENTRADAS");
+        resultado = receita.verificaSeRegistroEhReceita("OUTRAS_RECEITAS");
         Assert.assertEquals(true, resultado);
     }
 
@@ -151,8 +124,8 @@ public class ReceitaTest {
         resultado = receita.converterStringParaTipoReceita("DECIMO_TERCEIRO");
         Assert.assertEquals(TipoReceita.DECIMO_TERCEIRO, resultado);
 
-        resultado = receita.converterStringParaTipoReceita("OUTRAS_ENTRADAS");
-        Assert.assertEquals(TipoReceita.OUTRAS_ENTRADAS, resultado);
+        resultado = receita.converterStringParaTipoReceita("OUTRAS_RECEITAS");
+        Assert.assertEquals(TipoReceita.OUTRAS_RECEITAS, resultado);
     }
 
     @Test
@@ -164,6 +137,23 @@ public class ReceitaTest {
         } catch (Exception e) {
             Assert.assertEquals("Não foi possível converter o valor CASA em um tipo de receita", e.getMessage());
         }
+    }
+    
+    @Test
+    public void test_08_converterTipoReceitaParaString() {
+        Receita receita = new Receita();
+        
+        String resultado = receita.converterTipoReceitaParaString(TipoReceita.SALARIO);
+        Assert.assertEquals("Salário", resultado);
+        
+        resultado = receita.converterTipoReceitaParaString(TipoReceita.FERIAS);
+        Assert.assertEquals("Férias", resultado);
+        
+        resultado = receita.converterTipoReceitaParaString(TipoReceita.DECIMO_TERCEIRO);
+        Assert.assertEquals("Décimo terceiro", resultado);
+        
+        resultado = receita.converterTipoReceitaParaString(TipoReceita.OUTRAS_RECEITAS);
+        Assert.assertEquals("Outras receitas", resultado);
     }
 
 }

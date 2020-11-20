@@ -75,8 +75,8 @@
                 <Column editable="false" title="Tipo de Lan&#xe7;amento" type="java.lang.Object"/>
                 <Column editable="false" title="Tipo de Receita/Despesa" type="java.lang.Object"/>
                 <Column editable="false" title="Data" type="java.lang.Object"/>
-                <Column editable="false" title="Valor" type="java.lang.Object"/>
-                <Column editable="false" title="Saldo" type="java.lang.Object"/>
+                <Column editable="false" title="Valor (R$)" type="java.lang.Object"/>
+                <Column editable="false" title="Saldo (R$)" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">

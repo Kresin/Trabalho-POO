@@ -120,16 +120,15 @@ public class CadastroDespesa extends javax.swing.JDialog {
                             .addComponent(radioButtonEducacao))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(radioButtonTransporte)
+                            .addComponent(radioButtonEntretenimento))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 4, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(radioButtonEntretenimento)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(radioButtonOutros))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(radioButtonTransporte)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                                 .addComponent(radioButtonResidencia)
                                 .addGap(18, 18, 18)
-                                .addComponent(radioButtonSaude)))))
+                                .addComponent(radioButtonSaude))
+                            .addComponent(radioButtonOutros))))
                 .addGap(26, 26, 26))
         );
         jPanel1Layout.setVerticalGroup(
@@ -199,8 +198,6 @@ public class CadastroDespesa extends javax.swing.JDialog {
                     .addComponent(btnCancelar))
                 .addContainerGap())
         );
-
-        jPanel1.getAccessibleContext().setAccessibleName("Cadastro de Despesa");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -274,7 +271,7 @@ public class CadastroDespesa extends javax.swing.JDialog {
         }
         
         despesa.setDataLancamento(dataLancamento);
-        despesa.salvarDados("test.txt"); // Salva os dados
+        despesa.salvarDados("lancamentos.csv"); // Salva os dados
 
         this.setVisible(false); // Fecha a tela
     }//GEN-LAST:event_btnSalvarActionPerformed
