@@ -202,7 +202,7 @@ public class CadastroReceita extends javax.swing.JDialog {
         } else if (radioButtonFerias.isSelected()) {
             receita.setTipoReceita(TipoReceita.FERIAS);
         } else {
-            receita.setTipoReceita(TipoReceita.OUTRAS_ENTRADAS);
+            receita.setTipoReceita(TipoReceita.OUTRAS_RECEITAS);
         }
 
         double valorEntrada;
@@ -236,7 +236,7 @@ public class CadastroReceita extends javax.swing.JDialog {
         }
         
         receita.setDataLancamento(dataLancamento);
-        receita.salvarDados("test.txt"); // Salva os dados
+        receita.salvarDados("lancamentos.csv"); // Salva os dados
 
         this.setVisible(false); // Fecha a tela
     }//GEN-LAST:event_btnSalvarActionPerformed

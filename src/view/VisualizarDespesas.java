@@ -11,6 +11,7 @@ import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import model.Despesa;
 import model.TipoDespesa;
+import model.Formatador;
 
 /**
  *
@@ -26,7 +27,7 @@ public class VisualizarDespesas extends javax.swing.JDialog {
         initComponents();
 
         Despesa despesa = new Despesa();
-        List<Despesa> despesas = despesa.listarDados("test.txt");
+        List<Despesa> despesas = despesa.listarDados("lancamentos.csv");
 
         popularTabela(despesas);
     }
@@ -48,12 +49,14 @@ public class VisualizarDespesas extends javax.swing.JDialog {
         DefaultTableModel dtm = new DefaultTableModel(despesas.size(), 0);
         dtm.addColumn("Tipo de Despesa");
         dtm.addColumn("Data de lançamento");
-        dtm.addColumn("Valor");
+        dtm.addColumn("Valor (R$)");
         tableDespesas.setModel(dtm);
-
+        
+        Despesa despesa = new Despesa();
+        Formatador formatador = new Formatador();
         for (int i = 0; i < despesas.size(); i++) {
-            tableDespesas.setValueAt(despesas.get(i).getTipoDespesa(), i, 0);
-            tableDespesas.setValueAt(despesas.get(i).getDataLancamento(), i, 1);
+            tableDespesas.setValueAt(despesa.converterTipoDespesaParaString(despesas.get(i).getTipoDespesa()), i, 0);
+            tableDespesas.setValueAt(formatador.formatarData(despesas.get(i).getDataLancamento()), i, 1);
             tableDespesas.setValueAt(despesas.get(i).getValor(), i, 2);
         }
     }
@@ -113,19 +116,20 @@ public class VisualizarDespesas extends javax.swing.JDialog {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cbEntretenimento)
                     .addComponent(cbAlimentacao))
-                .addGap(12, 12, 12)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(26, 26, 26)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cbTransporte)
+                    .addComponent(cbResidencia, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(cbResidencia, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(cbOutros))
+                        .addComponent(cbSaude)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cbEducacao)
+                        .addGap(24, 24, 24))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(cbTransporte)
-                        .addGap(30, 30, 30)
-                        .addComponent(cbSaude)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(cbEducacao)
-                .addGap(24, 24, 24))
+                        .addComponent(cbOutros)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,7 +153,7 @@ public class VisualizarDespesas extends javax.swing.JDialog {
 
             },
             new String [] {
-                "Tipo da Despesa", "Data de lançamento", "Valor"
+                "Tipo da Despesa", "Data de lançamento", "Valor (R$)"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -194,7 +198,7 @@ public class VisualizarDespesas extends javax.swing.JDialog {
                 .addComponent(jbFiltrar)
                 .addGap(12, 12, 12)
                 .addComponent(jbFechar)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -252,7 +256,7 @@ public class VisualizarDespesas extends javax.swing.JDialog {
 
         if (!tipoDespesas.isEmpty()) {
             Despesa despesa = new Despesa();
-            List<Despesa> despesas = despesa.listarDados("test.txt", tipoDespesas);
+            List<Despesa> despesas = despesa.listarDados("lancamentos.csv", tipoDespesas);
             popularTabela(despesas);
         }
 
@@ -283,7 +287,7 @@ public class VisualizarDespesas extends javax.swing.JDialog {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }

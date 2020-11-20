@@ -21,7 +21,7 @@ public class Trabalho {
         try {
 
             // Carrega o arquivo a partir dos diretórios da máquina, caso não seja informado um caminho específico, o arquivo é buscado na raíz do projeto
-            FileReader fileReader = new FileReader("test.txt");
+            FileReader fileReader = new FileReader("lancamentos.csv");
             bufferedReader = new BufferedReader(fileReader);
 
             String linhaAtual;
@@ -38,7 +38,7 @@ public class Trabalho {
             String cwd = System.getProperty("user.dir"); //Obtém o diretório atual do projeto
             System.out.println("Diretório atual do projeto: " + cwd);
 
-            File file = new File(System.getProperty("user.dir") + "\\test.txt"); //Objeto para manipulação de arquivos em java
+            File file = new File(System.getProperty("user.dir") + "\\lancamentos.csv"); //Objeto para manipulação de arquivos em java
             boolean sucesso;
             try {
                 sucesso = file.createNewFile(); //Tentar criar o arquivo no caminho especificado
