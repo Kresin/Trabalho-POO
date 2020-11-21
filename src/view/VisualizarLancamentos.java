@@ -77,7 +77,7 @@ public class VisualizarLancamentos extends javax.swing.JDialog {
                 Despesa despesa = (Despesa) lancamentos.get(i);
                 saldo -= despesa.getValor();
                 tableLancamentos.setValueAt("Despesa", i, 0);
-                tableLancamentos.setValueAt(despesa.getTipoDespesa(), i, 1);
+                tableLancamentos.setValueAt(despesa.converterTipoDespesaParaString(despesa.getTipoDespesa()), i, 1);
                 tableLancamentos.setValueAt(formatador.formatarData(despesa.getDataLancamento()), i, 2);
                 tableLancamentos.setValueAt(despesa.getValor(), i, 3);
                 tableLancamentos.setValueAt(saldo, i, 4);
