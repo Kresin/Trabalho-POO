@@ -258,6 +258,10 @@ public class VisualizarDespesas extends javax.swing.JDialog {
             Despesa despesa = new Despesa();
             List<Despesa> despesas = despesa.listarDados("lancamentos.csv", tipoDespesas);
             popularTabela(despesas);
+        } else {
+            Despesa despesa = new Despesa();
+            List<Despesa> despesas = despesa.listarDados("lancamentos.csv");
+            popularTabela(despesas);
         }
 
     }//GEN-LAST:event_jbFiltrarActionPerformed
